@@ -27,8 +27,6 @@
 
     const [tokenId, key] = input.value.split('x', 2)
 
-    console.log(tokenId, account, `0x${key}`)
-
     const txHash = await window.ethereum.request({
       method: 'eth_sendTransaction',
       params: [{
