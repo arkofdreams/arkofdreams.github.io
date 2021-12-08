@@ -1,0 +1,91 @@
+html, body {
+  background-color: #0D1725;
+  color: #FFFFFF;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+a, a:hover, a:active, a:visited {
+  color: #FFFFFF;
+}
+
+.section-1 {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.section-1 img {
+  width: 200px;
+}
+
+.section-2 {
+  background-color: #000000;
+  padding: 40px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.section-3 {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.section-3 img {
+  width: 200px;
+}
+
+.section-4 {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.section-4 label {
+  display: block;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.section-4 input {
+  border: 1px solid #000000;
+  font-size: 15px;
+  outline: none;
+  padding: 10px;
+}
+
+.section-4 button {
+  background-color: #0C85A5;
+  border: 1px solid transparent;
+  border-radius: 0;
+  color: #FFFFFF;
+  padding: 10px 30px;
+  text-transform: uppercase;
+}
+
+.section-4 #error {
+  color: #DF0000;
+  margin-top: 5px;
+}
+
+.section-4 .success {
+  line-height: 30px;
+}
+
+.section-5 {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.section-5 img {
+  width: 100px;
+}
+
+.section-5 a {
+  display: block;
+  font-size: 11px;
+  margin-top: 10px;
+}
+
+@media(max-width: 400px) {
+}
