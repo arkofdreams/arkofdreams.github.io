@@ -1,5 +1,5 @@
 html, body {
-  background-color: #0D1725;
+  background-color: #0d1424;
   color: #FFFFFF;
   font-family: "Open Sans", Arial, sans-serif;
   font-size: 15px;
@@ -28,7 +28,7 @@ a, a:hover, a:active, a:visited {
 }
 
 .section-3 {
-  padding: 40px 0;
+  padding: 40px 0 0;
   text-align: center;
 }
 
