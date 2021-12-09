@@ -7,13 +7,15 @@
   form.addEventListener('submit', async (e) => {
     e.preventDefault()
     button.setAttribute('disabled', true);
+    button.disabled = true
     input.style.border = '1px solid #000000'
     error.innerText = ''
 
     if (!input.value?.length || !/^[0-9]+x/.test(input.value)) {
       input.style.border = '2px solid #DF0000'
       error.innerText = 'Invalid Key'
-      button.setAttribute('disabled', false);
+      button.setAttribute('disabled', false)
+      button.disabled = false
       return false
     }
 
@@ -22,6 +24,7 @@
     if (!connected) {
       error.innerText = message
       button.setAttribute('disabled', false);
+      button.disabled = false
       return false
     }
 
@@ -46,6 +49,9 @@
       </a>
       <br />for your status.
     </p>`
+
+    button.setAttribute('disabled', false);
+    button.disabled = false
     return false
   })
 
