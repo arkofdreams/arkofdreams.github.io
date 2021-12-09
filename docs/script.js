@@ -71,7 +71,7 @@
       
       return { 
         connected: false, 
-        message: `Please change network to ${contractJSON.chain}.` 
+        message: `Please change network to ${contractJSON.chain_name}.` 
       }
     } catch (e) {
       return { connected: false, message: e.message }
