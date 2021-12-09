@@ -41,8 +41,8 @@
     form.innerHTML = `<p class="success">
       Congrats! You should be receiving your mystery chest shortly. 
       <br />Please check 
-      <a href="https://testnet.bscscan.com/tx/${txHash}" target="_blank">
-        https://testnet.bscscan.com/tx/${txHash}
+      <a href="https://bscscan.com/tx/${txHash}" target="_blank">
+        https://bscscan.com/tx/${txHash}
       </a>
       <br />for your status.
     </p>`
