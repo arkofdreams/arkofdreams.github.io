@@ -13,7 +13,7 @@ a, a:hover, a:active, a:visited {
 
 .section-1 {
   background-image: url(https://bucket.mlcdn.com/a/3546/3546566/images/0cfa1961dbbd30cd50308878bd7b1d47a784425a.png);
-  background-position: center -180px;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 40px 0;
@@ -96,4 +96,7 @@ a, a:hover, a:active, a:visited {
   display: block;
   font-size: 11px;
   margin-top: 10px;
+}
+
+@media(max-width: 400px) {
 }
