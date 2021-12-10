@@ -22,7 +22,7 @@
     const { connected, message, account, contract } = await install(contractJSON)
 
     if (!connected) {
-      error.innerText = message
+      error.innerHTML = message
       button.setAttribute('disabled', false);
       button.disabled = false
       return false
@@ -30,16 +30,24 @@
 
     const [tokenId, key] = input.value.split('x', 2)
 
-    const txHash = await window.ethereum.request({
-      method: 'eth_sendTransaction',
-      params: [{
-        to: contractJSON.address,
-        from: account,
-        data: contract.methods
-          .lazyMint(tokenId, account, `0x${key}`)
-          .encodeABI(),
-      }]
-    });
+    const txHash = ''
+    try {
+      txHash = await window.ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [{
+          to: contractJSON.address,
+          from: account,
+          data: contract.methods
+            .lazyMint(tokenId, account, `0x${key}`)
+            .encodeABI(),
+        }]
+      });
+    } catch(e) {
+      error.innerHTML = e.message
+      button.setAttribute('disabled', false);
+      button.disabled = false
+      return false
+    }
 
     form.innerHTML = `<p class="success">
       Congrats! You should be receiving your mystery chest shortly. 
@@ -56,8 +64,8 @@
   })
 
   const install = async(contractJSON) => {
-    if (!window.ethereum.isMetaMask) {
-      return { connected: false, message: 'Please install MetaMask' }
+    if (!window.ethereum?.isMetaMask) {
+      return { connected: false, message: 'Please install <a href="https://metamask.io/" target="_blank">MetaMask</a>' }
     }
     try {
       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
