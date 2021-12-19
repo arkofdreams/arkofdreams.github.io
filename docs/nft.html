@@ -35,7 +35,7 @@
     </div>
     <div class="container mx-auto px-4">
       <div class="flex flex-row mb-80">
-        <div class="basis-4/12 mt-8">
+        <div class="basis-4/12 mt-8 cursor-pointer">
           <image
             src="assets/images/white-logo.png"
             alt="white logo ark of dreams"
@@ -43,13 +43,13 @@
             height="50px"
           />
         </div>
-        <div class="basis-8/12 mt-8">
+        <div class="basis-8/12 mt-8 z-50">
           <ul class="flex flex-row justify-end navbar">
-            <li class="px-4">Home</li>
-            <li class="px-4">NFT</li>
-            <li class="px-4">Token Sale</li>
-            <li class="px-4">White Paper</li>
-            <li class="px-4">Metamask</li>
+            <li class="px-4 cursor-pointer"><a href="/">Home</a></li>
+            <li class="px-4 cursor-pointer"><a href="/nft">NFT</a></li>
+            <li class="px-4 cursor-pointer">Token Sale</li>
+            <li class="px-4 cursor-pointer">White Paper</li>
+            <li id="metamask" class="px-4 cursor-pointer">Metamask</li>
           </ul>
         </div>
       </div>
@@ -162,5 +162,6 @@
       </div>
     </footer>
     </div>
+    <script src="assets/js/metamask.js"></script>
   </body>
 </html>
