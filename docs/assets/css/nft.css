@@ -1,0 +1,14 @@
+body {
+    background-color: #61409E;
+    font-family: 'Inter';
+}
+
+.navbar li{
+    color: #fff;
+    font-size: 18px;
+}
+
+footer { 
+    color: #fff;
+    font-size: 16px;
+}
