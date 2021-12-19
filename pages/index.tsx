@@ -5,7 +5,7 @@ import NavBar from "../components/navbar";
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <>
       <Head>
         <title>Ark of Dreams</title>
         <meta charSet="UTF-8" />
@@ -14,13 +14,14 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <div className="container mx-auto px-4 bg-[#61409E]">
       <NavBar />
       <main>
         <h1 className="text-3xl font-bold underline">Ark of Dreams Home Page</h1>
       </main>
       <Footer />
-
-    </div>
+      </div>
+    </>
   );
 };
 
