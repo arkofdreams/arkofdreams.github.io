@@ -68,17 +68,19 @@
           />
           <div class="flex  flex-row justify-center">
             <div
-              class="text-2xl p-4 bg-[#00BBF9] text-white w-14 h-14 rounded-full flex flex-items-center justify-items-center text-center border-2 border-[#03A7DD] -mt-8 z-20"
+              id="minus"
+              class="cursor-pointer text-2xl p-4 bg-[#00BBF9] text-white w-14 h-14 rounded-full flex flex-items-center justify-items-center text-center border-2 border-[#03A7DD] -mt-8 z-20"
             >
               <i class="fa fa-minus"></i>
             </div>
             <div
               class="text-3xl mx-2 pt-2 bg-white w-48 h-14 text-[#096D8E] rounded-full  text-center shadow-lg shadow-[#b1ebff] align-middle -mt-8 z-20 font-semibold"
             >
-              Mint 2/5
+              Mint <span id="mintValue"></span>/5
             </div>
             <div
-              class="text-2xl p-4 bg-[#00BBF9] text-white w-14 h-14 rounded-full flex flex-items-center justify-items-center text-center border-2 border-[#03A7DD] -mt-8 z-20"
+              id="plus"
+              class="cursor-pointer text-2xl p-4 bg-[#00BBF9] text-white w-14 h-14 rounded-full flex flex-items-center justify-items-center text-center border-2 border-[#03A7DD] -mt-8 z-20"
             >
               <i class="fa fa-plus"></i>
             </div>
@@ -86,7 +88,7 @@
           <div
             class="flex flex-row text-center mt-12 text-lg font-semibold text-[#240046]"
           >
-            <div class="basis-5/12 text-right">400 BUSD per pet</div>
+            <div class="basis-5/12 text-right"><span id="petValue"></span> BUSD per pet</div>
             <div class="basis-2/12 text-2xl text-[#A8ABFF]">|</div>
             <div class="basis-5/12 text-left">10/5,000 available</div>
           </div>
@@ -96,11 +98,12 @@
             <div
               class="basis-6/12 text-center text-white font-bold text-xl mt-2"
             >
-              800 BUSD
+              <span id="totalValue"></span> BUSD
             </div>
             <div class="basis-6/12 text-center">
               <div
-                class="mx-auto pt-2 bg-white w-36 h-12 text-xl text-[#5415EA] rounded-full  text-center  align-middle font-semibold"
+              id="mint"
+                class="cursor-pointer mx-auto pt-2 bg-white w-36 h-12 text-xl text-[#5415EA] rounded-full  text-center  align-middle font-semibold"
               >
                 Mint
               </div>
