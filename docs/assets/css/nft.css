@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Inter&display=swap');
 body {
-  font-family: "Inter";
+  font-family: 'Inter', sans-serif;
   /* background: rgb(32, 7, 55); */
   /* background-image: url("../images/bg.png"); */
   /* background: url("../images/bg.png"),
