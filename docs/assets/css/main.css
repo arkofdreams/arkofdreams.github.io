@@ -527,8 +527,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 5rem;
 }
 
-.mb-80 {
-  margin-bottom: 20rem;
+.mb-36 {
+  margin-bottom: 9rem;
 }
 
 .mt-8 {
@@ -539,8 +539,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 1.25rem;
 }
 
-.mb-20 {
-  margin-bottom: 5rem;
+.mb-8 {
+  margin-bottom: 2rem;
 }
 
 .-mt-8 {
@@ -553,46 +553,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mt-2 {
   margin-top: 0.5rem;
-}
-
-.mb-60 {
-  margin-bottom: 15rem;
-}
-
-.mb-72 {
-  margin-bottom: 18rem;
-}
-
-.mb-96 {
-  margin-bottom: 24rem;
-}
-
-.mb-64 {
-  margin-bottom: 16rem;
-}
-
-.mb-48 {
-  margin-bottom: 12rem;
-}
-
-.mb-32 {
-  margin-bottom: 8rem;
-}
-
-.mb-36 {
-  margin-bottom: 9rem;
-}
-
-.mb-16 {
-  margin-bottom: 4rem;
-}
-
-.mb-10 {
-  margin-bottom: 2.5rem;
-}
-
-.mb-8 {
-  margin-bottom: 2rem;
 }
 
 .mt-10 {

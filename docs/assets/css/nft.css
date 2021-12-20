@@ -80,7 +80,7 @@ footer {
   height: 2px;
   width: 2px;
   border-radius: 50%;
-  /* animation-iteration-count: infinite; */
+  animation-iteration-count: infinite;
 }
 
 .star-1 {
