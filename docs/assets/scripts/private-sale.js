@@ -1,18 +1,18 @@
-(function() {
+(() => {
   //calculator
   const rate = 0.025
   const decimals = 1000
   const conversion = document.getElementById('conversion')
   const input = document.getElementById('amount')
-  input.addEventListener('keyup', function() {
+  input.addEventListener('keyup', () => {
     setTimeout(() => {
       const busd = Math.round((parseFloat(input.value) * rate) * decimals) / decimals
       conversion.innerText = busd.toLocaleString()
     }, 1)
   })
-})()
+})();
 
-(function() {
+(() => {
   const contractJSON = JSON.parse(document.getElementById('contract').innerText)
   const form = document.getElementById('buy')
   const input = document.getElementById('amount')
