@@ -1,18 +1,34 @@
 (() => {
   //calculator
   const rate = 0.025
+  const web3 = new Web3(window.ethereum)
+  window.aodToBusd = function(aod, toEther) {
+    if (toEther) {
+      return numToEther(aod * rate)
+    }
+    return aod * rate
+  }
+  window.numToEther = function(num) {
+    console.log(num, web3.utils.toWei(String(num)).toString())
+    return web3.utils.toWei(String(num)).toString()
+  }
+})();
+
+(() => {
+  //calculator
   const decimals = 1000
   const conversion = document.getElementById('conversion')
   const input = document.getElementById('amount')
   input.addEventListener('keyup', () => {
     setTimeout(() => {
-      const busd = Math.round((parseFloat(input.value) * rate) * decimals) / decimals
+      const busd = Math.round(aodToBusd(parseFloat(input.value)) * decimals) / decimals
       conversion.innerText = busd.toLocaleString()
     }, 1)
   })
 })();
 
 (() => {
+  const busdJSON = JSON.parse(document.getElementById('busd').innerText)
   const contractJSON = JSON.parse(document.getElementById('contract').innerText)
   const form = document.getElementById('buy')
   const input = document.getElementById('amount')
@@ -36,10 +52,35 @@
       return false
     }
 
-    const { connected, message, account, contract } = await install(contractJSON)
+    const busd = await install(busdJSON)
+    if (!busd.connected) {
+      error.innerHTML = busd.message
+      button.setAttribute('disabled', false);
+      button.disabled = false
+      return false
+    }
 
-    if (!connected) {
-      error.innerHTML = message
+    try {
+      await window.ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [{
+          to: busdJSON.address,
+          from: busd.account,
+          data: busd.contract.methods
+            .approve(contractJSON.address, aodToBusd(amount, true))
+            .encodeABI(),
+        }]
+      });
+    } catch(e) {
+      error.innerHTML = e.message
+      button.setAttribute('disabled', false);
+      button.disabled = false
+      return false
+    }
+
+    const contract = await install(contractJSON)
+    if (!contract.connected) {
+      error.innerHTML = contract.message
       button.setAttribute('disabled', false);
       button.disabled = false
       return false
@@ -51,9 +92,9 @@
         method: 'eth_sendTransaction',
         params: [{
           to: contractJSON.address,
-          from: account,
-          data: contract.methods
-            .buy(amount)
+          from: contract.account,
+          data: contract.contract.methods
+            .buy(numToEther(amount))
             .encodeABI(),
         }]
       });
