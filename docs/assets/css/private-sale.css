@@ -2,13 +2,20 @@
 @import url("https://fonts.googleapis.com/css?family=Inter&display=swap");
 
 body {
-  font-family: "Inter", sans-serif;
-  background-color: #08aeea;
-  background-image: linear-gradient(0deg, #08aeea 0%, #2af598 100%);
-
-  background-repeat: no-repeat;
+  font-family: 'Inter', sans-serif;
+background: rgb(99,193,50);
+background: linear-gradient(0deg, rgba(99,193,50,1) 30%, rgba(99,193,50,1) 60%, rgba(190,241,251,0.6418942577030813) 82%, rgba(142,221,236,0.7903536414565826) 100%);
 }
 
-#title{
-    font-family: "Candal", sans-serif;
+#title {
+  font-family: 'Canal', sans-serif;
+  color: #5415EA;
+}
+
+.navbar li {
+    color: #5415EA;
+}
+
+.custom-img{
+    background-image: url('../images/private-sale-bg.png');
 }
