@@ -15,6 +15,10 @@ body {
   color: #5415EA;
 }
 
+input#amount {
+  min-width: 150px;
+}
+
 .forest {
   background-attachment: fixed;
   background-image: url('../images/private-sale-bg.png');

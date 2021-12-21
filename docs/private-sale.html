@@ -93,9 +93,28 @@
             <div class="basis-10/12 p-4 text-2xl">
               <p>Enter the amount of $AOD Tokens you'd like to purchase:</p>
               <small class="text-gray-700 text-md">Min: 100,000 $AOD Tokens</small> <br />
-              <small class="text-gray-700 text-md">Max: 500,000 $AOD Tokens</small> <br /><br />
-              <input type="number" placeholder="$AOD" class="form-input px-4 py-4 rounded-lg">
-              <button type="button" placeholder="$AOD" class="px-4 py-3 rounded-lg bg-green-500 text-white font-bold border-green-700 hover:bg-green-400 cursor-pointer">Buy</button>
+              <small class="text-gray-700 text-md">Max: 500,000 $AOD Tokens</small> <br />
+              <form id="buy">
+                <input 
+                  id="amount" 
+                  type="number" 
+                  placeholder="$AOD" 
+                  class="form-input px-4 py-4 rounded-lg" 
+                  min="100000" 
+                  max="500000" 
+                  step="1"
+                  value="100000" 
+                />
+                <button 
+                  type="button" 
+                  placeholder="$AOD" 
+                  class="px-4 py-3 rounded-lg bg-green-500 text-white font-bold border-green-700 hover:bg-green-400 cursor-pointer"
+                >
+                  Buy
+                </button>
+                <span> = <span id="conversion">2,500</span> BUSD</span>
+                <div id="error"></div>
+              </form>
             </div>
           </div>
         </div>
@@ -184,6 +203,793 @@
       <h5>Copyright 2021  Ark of Dreams</h5>
       <h5>Innovative Impact Ventures, Inc</h5>
     </footer>
+    <script type="text/json" id="contract">
+      {
+        "name": "Ark of Dreams Private Sale",
+        "symbol": "AOD",
+        "chain_symbol": "BNB",
+        "chain": "BSC",
+        "chain_name": "Binance Smart Chain (BSC)",
+        "chain_id": 97,
+        "address": "0x4302B449170B0Be107Dd4d8cFD5B31E957dcaccc",
+        "abi": [
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "aod",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "busd",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "fund",
+                "type": "address"
+              },
+              {
+                "internalType": "uint64",
+                "name": "_startDate",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "_endDate",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "_vestedDate",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "_lockPeriod",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint256",
+                "name": "_tokenPrice",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "_minimumBUSDAmount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "_maximumBUSDAmount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "_lockedTokens",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "_vestedTokens",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "token",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+              }
+            ],
+            "name": "ERC20Released",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": false,
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+              }
+            ],
+            "name": "Paused",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32"
+              },
+              {
+                "indexed": true,
+                "internalType": "bytes32",
+                "name": "previousAdminRole",
+                "type": "bytes32"
+              },
+              {
+                "indexed": true,
+                "internalType": "bytes32",
+                "name": "newAdminRole",
+                "type": "bytes32"
+              }
+            ],
+            "name": "RoleAdminChanged",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "sender",
+                "type": "address"
+              }
+            ],
+            "name": "RoleGranted",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "sender",
+                "type": "address"
+              }
+            ],
+            "name": "RoleRevoked",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": false,
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+              }
+            ],
+            "name": "Unpaused",
+            "type": "event"
+          },
+          {
+            "inputs": [],
+            "name": "AOD",
+            "outputs": [
+              {
+                "internalType": "contract IAOD",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "BUSD",
+            "outputs": [
+              {
+                "internalType": "contract IERC20",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "DEFAULT_ADMIN_ROLE",
+            "outputs": [
+              {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "PAUSER_ROLE",
+            "outputs": [
+              {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "beneficiary",
+                "type": "address"
+              }
+            ],
+            "name": "account",
+            "outputs": [
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "busdAmount",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "lockedTokens",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "vestingTokens",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "releasedTokens",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "unlocked",
+                    "type": "bool"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "active",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct AODTokenSale.Account",
+                "name": "",
+                "type": "tuple"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "name": "accounts",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "busdAmount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "lockedTokens",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "vestingTokens",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "releasedTokens",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bool",
+                "name": "unlocked",
+                "type": "bool"
+              },
+              {
+                "internalType": "bool",
+                "name": "active",
+                "type": "bool"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint256",
+                "name": "aodAmount",
+                "type": "uint256"
+              }
+            ],
+            "name": "buy",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "canVest",
+            "outputs": [
+              {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "currentlyAllocated",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "endDate",
+            "outputs": [
+              {
+                "internalType": "uint64",
+                "name": "",
+                "type": "uint64"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32"
+              }
+            ],
+            "name": "getRoleAdmin",
+            "outputs": [
+              {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32"
+              },
+              {
+                "internalType": "uint256",
+                "name": "index",
+                "type": "uint256"
+              }
+            ],
+            "name": "getRoleMember",
+            "outputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32"
+              }
+            ],
+            "name": "getRoleMemberCount",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32"
+              },
+              {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+              }
+            ],
+            "name": "grantRole",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32"
+              },
+              {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+              }
+            ],
+            "name": "hasRole",
+            "outputs": [
+              {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "lockPeriod",
+            "outputs": [
+              {
+                "internalType": "uint64",
+                "name": "",
+                "type": "uint64"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "maximumBUSDAmount",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "minimumBUSDAmount",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "pause",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "paused",
+            "outputs": [
+              {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "release",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32"
+              },
+              {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+              }
+            ],
+            "name": "renounceRole",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "bytes32",
+                "name": "role",
+                "type": "bytes32"
+              },
+              {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+              }
+            ],
+            "name": "revokeRole",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "startDate",
+            "outputs": [
+              {
+                "internalType": "uint64",
+                "name": "",
+                "type": "uint64"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "bytes4",
+                "name": "interfaceId",
+                "type": "bytes4"
+              }
+            ],
+            "name": "supportsInterface",
+            "outputs": [
+              {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "tokenGeneratedEvent",
+            "outputs": [
+              {
+                "internalType": "uint64",
+                "name": "",
+                "type": "uint64"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "tokenPrice",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "totalPossibleLockedTokens",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "totalPossibleVestedTokens",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "beneficiary",
+                "type": "address"
+              },
+              {
+                "internalType": "uint64",
+                "name": "timestamp",
+                "type": "uint64"
+              }
+            ],
+            "name": "totalReleasableAmount",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "beneficiary",
+                "type": "address"
+              },
+              {
+                "internalType": "uint64",
+                "name": "timestamp",
+                "type": "uint64"
+              }
+            ],
+            "name": "totalVestedAmount",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint64",
+                "name": "timestamp",
+                "type": "uint64"
+              }
+            ],
+            "name": "trigger",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "unpause",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "beneficiary",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "aodAmount",
+                "type": "uint256"
+              }
+            ],
+            "name": "vest",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "vestedDate",
+            "outputs": [
+              {
+                "internalType": "uint64",
+                "name": "",
+                "type": "uint64"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          }
+        ]
+      }      
+    </script>
     <script src="./assets/scripts/private-sale.js"></script>
   </body>
 </html>
