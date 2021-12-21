@@ -2,9 +2,8 @@
 @import url("https://fonts.googleapis.com/css?family=Inter&display=swap");
 
 body {
+  background-color: #AFE7F1;
   font-family: 'Inter', sans-serif;
-background: rgb(99,193,50);
-background: linear-gradient(0deg, rgba(99,193,50,1) 30%, rgba(99,193,50,1) 60%, rgba(190,241,251,0.6418942577030813) 82%, rgba(142,221,236,0.7903536414565826) 100%);
 }
 
 #title {
@@ -13,9 +12,60 @@ background: linear-gradient(0deg, rgba(99,193,50,1) 30%, rgba(99,193,50,1) 60%, 
 }
 
 .navbar li {
-    color: #5415EA;
+  color: #5415EA;
 }
 
-.custom-img{
-    background-image: url('../images/private-sale-bg.png');
+.forest {
+  background-attachment: fixed;
+  background-image: url('../images/private-sale-bg.png');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.foot {
+  background-color: #000000;
+  color: #FFFFFF;
+  position: relative;
+  text-align: center;
+  padding-bottom: 40px;
+  z-index: 10;
+}
+
+.foot img {
+  display: inline-block;
+  width: 300px;
+}
+
+.foot ul {
+  margin-bottom: 20px;
+}
+
+.foot h4 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.foot h5 {
+  font-size: 12px;
+}
+
+.foot h6 {
+  font-size: 12px;
+  position: absolute;
+  text-transform: uppercase;
+  top: 50px;
+  width: 100%;
+}
+
+.foot h6 span {
+  display: inline-block;
+  margin-left: 75px;
 }
