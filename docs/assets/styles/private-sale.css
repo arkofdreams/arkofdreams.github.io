@@ -8,7 +8,9 @@ body {
 
 #title {
   font-family: 'Canal', sans-serif;
+  font-size: 70px;
   color: #5415EA;
+  margin-top: 100px;
 }
 
 .navbar li {
@@ -31,6 +33,10 @@ input#amount {
   right: 0;
   top: 0;
   z-index: 10;
+}
+
+.box-item {
+  max-width: 900px;
 }
 
 .foot {
@@ -72,4 +78,10 @@ input#amount {
 .foot h6 span {
   display: inline-block;
   margin-left: 75px;
+}
+
+@media (max-width: 767px) {
+  #title {
+    font-size: 50px;
+  }
 }
