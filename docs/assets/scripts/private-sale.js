@@ -32,6 +32,7 @@
   const form = document.getElementById('buy')
   const input = document.getElementById('amount')
   const error = document.getElementById('error')
+  const notes = document.getElementById('notes')
   const button = form.getElementsByTagName('button')[0]
 
   form.addEventListener('submit', async (e) => {
@@ -40,27 +41,32 @@
     button.disabled = true
     input.style.border = '1px solid #000000'
     error.innerText = ''
+    notes.innerText = ''
 
     const amount = parseFloat(input.value)
 
     if (isNaN(amount) || amount < 100000 || amount > 500000) {
       input.style.border = '2px solid #DF0000'
       error.innerText = 'Invalid Amount'
+      notes.innerText = ''
       button.setAttribute('disabled', false)
       button.disabled = false
       return false
     }
 
+    notes.innerText = `Please approve of ${aodToBusd(amount).toLocaleString()} BUSD...`
+
     const busd = await install(busdJSON)
     if (!busd.connected) {
       error.innerHTML = busd.message
+      notes.innerText = ''
       button.setAttribute('disabled', false);
       button.disabled = false
       return false
     }
-    
+
     try {
-      await window.ethereum.request({
+      const approved = await window.ethereum.request({
         method: 'eth_sendTransaction',
         params: [{
           to: busdJSON.address,
@@ -70,16 +76,23 @@
             .encodeABI(),
         }]
       });
+
+      notes.innerText = 'Waiting for confirmation. Please wait...'
+      await mined(busd.web3, approved)
     } catch(e) {
       error.innerHTML = e.message
+      notes.innerText = ''
       button.setAttribute('disabled', false);
       button.disabled = false
       return false
     }
+
+    notes.innerText = `Please confirm purchase of ${amount.toLocaleString()} $AOD...`
   
     const contract = await install(contractJSON)
     if (!contract.connected) {
       error.innerHTML = contract.message
+      notes.innerText = ''
       button.setAttribute('disabled', false);
       button.disabled = false
       return false
@@ -99,6 +112,7 @@
       });
     } catch(e) {
       error.innerHTML = e.message
+      notes.innerText = ''
       button.setAttribute('disabled', false);
       button.disabled = false
       return false
@@ -117,6 +131,25 @@
     button.disabled = false
     return false
   })
+
+  const mined = function(web3, txHash, interval) {
+    const transactionReceiptAsync = function(resolve, reject) {
+      web3.eth.getTransactionReceipt(txHash, (error, receipt) => {
+        if (error) {
+          reject(error);
+        } else if (receipt == null) {
+          setTimeout(
+            () => transactionReceiptAsync(resolve, reject),
+            interval ? interval : 500
+          )
+        } else {
+          resolve(receipt)
+        }
+      });
+    };
+
+    return new Promise(transactionReceiptAsync)
+  }
 
   const install = async(contractJSON) => {
     if (!window.ethereum?.isMetaMask) {

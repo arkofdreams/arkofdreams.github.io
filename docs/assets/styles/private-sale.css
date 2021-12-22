@@ -10,7 +10,15 @@ body {
   font-family: 'Canal', sans-serif;
   font-size: 70px;
   color: #5415EA;
-  margin-top: 100px;
+}
+
+#error {
+  color: #DF0000;
+  margin-top: 5px;
+}
+
+#notes {
+  margin-top: 5px;
 }
 
 .navbar li {
@@ -83,5 +91,6 @@ input#amount {
 @media (max-width: 767px) {
   #title {
     font-size: 50px;
+    margin-top: 100px;
   }
 }
