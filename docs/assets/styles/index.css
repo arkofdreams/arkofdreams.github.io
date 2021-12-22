@@ -1,3 +1,7 @@
+html, body {
+  background-color: #3C8fC4;
+}
+
 .copy h1, .copy h2 {
   font-size: 30px;
   font-weight: 800;
@@ -137,6 +141,32 @@
   display: inline-block;
   margin-top: 20px;
   padding: 20px 40px;
+}
+
+.section-5 {
+  background-image: url(../images/bg-subscribe.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-bottom: 40px;
+  height: 400px;
+  text-align: center;
+}
+
+.section-5 h2 {
+  color: #222222;
+  font-size: 40px;
+  padding: 60px 0 30px;
+  text-transform: uppercase;
+}
+
+.section-5 p {
+  color: #222222;
+}
+
+.section-5 button {
+  margin-top: 10px;
+  padding: 10px 30px;
 }
 
 .foot {
