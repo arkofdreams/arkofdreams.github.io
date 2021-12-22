@@ -45,7 +45,7 @@
 
     const amount = parseFloat(input.value)
 
-    if (isNaN(amount) || amount < 100000 || amount > 500000) {
+    if (isNaN(amount) || amount < 100000 || amount > 600000) {
       input.style.border = '2px solid #DF0000'
       error.innerText = 'Invalid Amount'
       notes.innerText = ''
@@ -121,7 +121,7 @@
     form.innerHTML = `<p class="text-md mt-4">
       <strong>Congrats!</strong> You should be receiving your mystery chest shortly. 
       <br />Please check 
-      <a class="text-blue-600 underline font-semibold" href="https://testnet.bscscan.com/tx/${txHash}" target="_blank">
+      <a class="text-blue-600 underline font-semibold" href="https://bscscan.com/tx/${txHash}" target="_blank">
         bscscan.com
       </a> for your status.
     </p>`
