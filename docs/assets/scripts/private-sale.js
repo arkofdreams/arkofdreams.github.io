@@ -9,7 +9,6 @@
     return aod * rate
   }
   window.numToEther = function(num) {
-    console.log(num, web3.utils.toWei(String(num)).toString())
     return web3.utils.toWei(String(num)).toString()
   }
 })();
@@ -59,7 +58,7 @@
       button.disabled = false
       return false
     }
-
+    
     try {
       await window.ethereum.request({
         method: 'eth_sendTransaction',
@@ -77,7 +76,7 @@
       button.disabled = false
       return false
     }
-
+  
     const contract = await install(contractJSON)
     if (!contract.connected) {
       error.innerHTML = contract.message
@@ -86,7 +85,7 @@
       return false
     }
 
-    const txHash = ''
+    let txHash = ''
     try {
       txHash = await window.ethereum.request({
         method: 'eth_sendTransaction',
