@@ -26,6 +26,7 @@
   })
 })();
 
+
 (() => {
   const busdJSON = JSON.parse(document.getElementById('busd').innerText)
   const contractJSON = JSON.parse(document.getElementById('contract').innerText)
