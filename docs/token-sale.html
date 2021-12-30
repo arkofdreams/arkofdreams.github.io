@@ -13,8 +13,9 @@
     <link rel="stylesheet" href="./assets/fonts/fontawesome/css/all.min.css">
   </head>
   <body class="bg-[#B1FF70]">
+    <div class="falling-leaves"></div>
     <div class="flex flex-col w-full h-screen bg-fixed bg-center bg-cover bg-[url('/assets/images/aod_bg_token_sale.png')] z-10">
-    <div class="bg-white bg-opacity-50 h-24 w-full"> 
+    <div class="bg-white bg-opacity-80 h-24 w-full backdrop-blur-sm"> 
       <div class="container mx-auto px-4">
       <div class="flex flex-row mb-18">
         <div class="basis-4/12 mt-8 cursor-pointer">
@@ -74,7 +75,7 @@
 
     <div class="container mx-auto px-4 mt-20 z-[100]">
       <main class="flex flex-col space-y-8 mb-20">
-        <div class="box-item pb-10 w-full mx-auto drop-shadow-lg">
+        <div class="box-item pb-10 w-full mx-auto drop-shadow-md hover:drop-shadow-2xl">
           <div class="flex flex-row bg-white p-4 rounded-xl">
             <div class="basis-2/12 bg-green-200 text-green-600 p-4 text-4xl font-bold rounded-xl mr-8 text-center">Step<br />1</div>
             <div class="basis-10/12 p-4 text-2xl">
@@ -89,7 +90,7 @@
           </div>
         </div>
 
-        <div class="box-item pb-10 w-full mx-auto drop-shadow-lg">
+        <div class="box-item pb-10 w-full mx-auto drop-shadow-md hover:drop-shadow-2xl">
           <div class="flex flex-row bg-white p-4 rounded-xl">
             <div class="basis-2/12 bg-green-200 text-green-600 p-4 text-4xl font-bold rounded-xl mr-8 text-center">Step 2</div>
             <div class="basis-10/12 p-4 text-2xl">
@@ -120,7 +121,7 @@
           </div>
         </div>
 
-        <div class="box-item pb-10 w-full mx-auto drop-shadow-lg">
+        <div class="box-item pb-10 w-full mx-auto drop-shadow-md hover:drop-shadow-2xl">
           <div class="flex flex-row bg-white p-4 rounded-xl">
             <div class="basis-2/12 bg-green-200 text-green-600 p-4 text-4xl font-bold rounded-xl mr-8 text-center">Step 3</div>
             <div class="basis-10/12 p-4 text-2xl">
@@ -156,7 +157,7 @@
           </div>
         </div>
 
-        <div class="box-item pb-10 w-full mx-auto drop-shadow-lg">
+        <div class="box-item pb-10 w-full mx-auto drop-shadow-md hover:drop-shadow-2xl">
           <div class="flex flex-row bg-white p-4 rounded-xl">
             <div class="basis-2/12 bg-green-200 text-green-600 p-4 text-4xl font-bold rounded-xl mr-8 text-center">Step 4</div>
             <div class="basis-10/12 p-4 text-2xl">
@@ -179,7 +180,7 @@
           </div>
         </div>
 
-        <div class="box-item pb-10 w-full mx-auto drop-shadow-lg">
+        <div class="box-item pb-10 w-full mx-auto drop-shadow-md hover:drop-shadow-2xl">
           <div class="flex flex-row bg-white p-4 rounded-xl">
             <div class="basis-2/12 bg-green-200 text-green-600 p-4 text-4xl font-bold rounded-xl mr-8 text-center">Step 5</div>
             <div class="basis-10/12 p-4 text-2xl">
@@ -200,26 +201,22 @@
           </div>
         </div>
 
-        <div class="box-item pb-10 w-full flex-grow mx-auto drop-shadow-lg">
+        <div class="text-white p-4 text-8xl font-bold text-center"><span class="drop-shadow-lg">FAQ</span></div>
+        <div class="box-item pb-10 w-full flex-grow mx-auto drop-shadow-md hover:drop-shadow-2xl">
           <div class="flex flex-row bg-white p-4 rounded-xl">
-            <div class="basis-2/12 bg-green-200 text-green-600 p-4 text-4xl font-bold rounded-xl mr-8 text-center">FAQs</div>
-            <div class="basis-10/12 p-4 text-2xl">
-              <b>Q1: Are there minimum and maximum amounts I can purchase?</b><br />
-              <br />
+            <div class="basis-12/12 p-4">
+              <span class="block text-xl mb-2 font-bold">Q1: Are there minimum and maximum amounts I can purchase?</span>
+              <p class="pl-10">
               Yes, we are limiting the purchase amount per buyer:
               <br />Minimum = 100,000 $AOD
               <br />Maximum = 500,000 $AOD
-              <br /><br />
-              <b>Q2: When is the token generation event (TGE)?</b>
-              <br /><br />
-              This will be manually triggered by the Ark of Dreams Team based on the roadmap. Target date is around Q1-Q2 of 2022..
-              <br /><br />
-              <b>Q3: How long is the lockup period?</b>
-              <br />
-              <br />6 months from TGE.
-              <br /> <br /><br />
-              <b>Q4: When is the token delivery date?</b>
-              <br /><br />10% on TGE, 6 months lockup, then 24 months linear vesting thereafter.
+              </p>
+              <span class="block text-xl font-bold mt-8 mb-2">Q2: When is the token generation event (TGE)?</span>
+              <p class="pl-10">This will be manually triggered by the Ark of Dreams Team based on the roadmap. Target date is around Q1-Q2 of 2022..</p>
+              <span class="block text-xl font-bold mt-8 mb-2">Q3: How long is the lockup period?</span>
+              <p class="pl-10">6 months from TGE.</p>
+              <span class="block text-xl font-bold mt-8 mb-2">Q4: When is the token delivery date?</span>
+              <p class="pl-10">10% on TGE, 6 months lockup, then 24 months linear vesting thereafter.</p>
             </div>
           </div>
         </div>
@@ -229,7 +226,7 @@
       <div>
         <img class="inline w-[300px] mb-8 border-2 border-white rounded-xl" src="./assets/images/footer.png" />
       </div>
-      <h4 class="mt-4 text-lg mb-8">FOLLOW US AND <br />JOIN THE AOD COMMUNITY!</h4>
+      <h4 class="mt-4 text-lg mb-8">FOLLOW US AND <br />JOIN THE <span class="text-green-400">AOD</span> COMMUNITY!</h4>
       <ul class="flex flex-row justify-center space-x-3 mb-8">
         <li class="px-6 py-5 border-2 border-white rounded-full cursor-pointer">
           <a href="https://facebook.com/ArkOfDreamsio" target="_blank">
@@ -258,8 +255,8 @@
         </li>
       </ul>
       <div class="flex flex-row mx-auto container justify-between mb-10 mt-28">
-        <h5>Copyright 2021 (c) Ark of Dreams</h5>
-        <h5>Innovative Impact Ventures, Inc</h5>
+        <h5>© Copyright 2021</h5>
+        <h5> Ark of Dreams Innovative Impact Ventures, Inc</h5>
       </div>
     </footer>
     </div>
@@ -1353,5 +1350,6 @@
       }      
     </script>
     <script src="./assets/scripts/private-sale.js"></script>
+    <script src="./assets/scripts/leaves.js"></script>
   </body>
 </html>
