@@ -2,19 +2,24 @@
 @import url("https://fonts.googleapis.com/css?family=Inter&display=swap");
 
 body {
-  background-color: #AFE7F1;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
+  background: rgb(177, 255, 112);
+  background: linear-gradient(
+    0deg,
+    rgba(177, 255, 112, 1) 0%,
+    rgba(236, 254, 255, 1) 68%
+  ) fixed;
 }
 
 #title {
-  font-family: 'Canal', sans-serif;
+  font-family: "Canal", sans-serif;
   font-size: 100px;
-  color: #5415EA;
-  z-index:20;
+  color: #5415ea;
+  z-index: 20;
 }
 
 #error {
-  color: #DF0000;
+  color: #df0000;
   margin-top: 5px;
 }
 
@@ -23,7 +28,7 @@ body {
 }
 
 .navbar li {
-  color: #5415EA;
+  color: #5415ea;
 }
 
 input#amount {
@@ -31,14 +36,14 @@ input#amount {
 }
 
 .forest {
-  background-image: url('../images/aod_bg_token_sale.png');
+  background-image: url("../images/aod_bg_token_sale.png");
   height: 100%;
   background-position: cover;
   background-repeat: no-repeat;
   background-size: cover;
   bottom: 0;
   left: 0;
-  position: fixed;
+  position: relative;
   right: 0;
   top: 0;
   z-index: 10;
@@ -46,15 +51,6 @@ input#amount {
 
 .box-item {
   max-width: 900px;
-}
-
-.foot {
-  background-color: #000000;
-  color: #FFFFFF;
-  position: relative;
-  text-align: center;
-  padding-bottom: 40px;
-  z-index: 10;
 }
 
 .foot img {
