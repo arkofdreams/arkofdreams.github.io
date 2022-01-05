@@ -1,0 +1,31 @@
+.mystery-box {
+    position: relative;
+    overflow:hidden;
+}
+
+.mystery-box::after {
+    content: "";
+	position: absolute;
+    width: 110%;
+    height: 50%;
+    top: 0;
+    left: -5%;
+    border-radius: 50%;
+    box-shadow: 0px -400px 0px 300px white; 
+}
+
+.footer {
+    position: relative;
+    overflow:hidden;
+}
+
+.footer::after {
+    content: "";
+	position: absolute;
+    width: 110%;
+    height: 50%;
+    top: 0;
+    left: -5%;
+    border-radius: 50%;
+    box-shadow: 0px -400px 0px 300px white; 
+}
