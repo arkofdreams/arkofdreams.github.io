@@ -20,7 +20,7 @@
   </head>
   <body>
     <div
-      class="bg-blue-600 text-white bg-[url('/assets/images/last_skies.png')] bg-no-repeat bg-cover pb-5 h-[68rem] relative z-0 head"
+      class="bg-blue-600 text-white bg-[url('/assets/images/last_skies.png')] bg-no-repeat bg-cover pb-5 h-[68rem] lg:h-[68rem] md:h-[60rem] relative z-0 head"
     >
       <div class="flex flex-row px-10 py-10 justify-between">
         <div>
@@ -69,32 +69,32 @@
       </div>
 
       <img
-        src="/assets/images/arc_ship.png"
+        src="/assets/images/arc_ship2.png"
         data-type="parallax"
         data-depth="0.30"
-        class="absolute block top-34 left-52 scale-125 z-10 layer layer-1"
+        class="absolute block top-0 lg:top-0 md:top-52 left-0 lg:left-0 md:left-0 scale-100 lg:scale-100 md:scale-150 sm:scale-100 z-10 layer layer-1  "
       />
       <img
         src="/assets/images/mountains.png"
         data-type="parallax"
         data-depth="0.10"
-        class="w-full absolute block bottom-0 left-0 z-20 layer layer-2"
+        class="w-full absolute block bottom-0 lg:bottom-0 md:bottom-0 left-0 z-20 layer layer-2"
       />
       <img
         src="/assets/images/grass.png"
         data-type="parallax"
         data-depth="0.10"
-        class="w-full absolute block bottom-0 left-0 z-30 layer layer-3"
+        class="w-full absolute block bottom-0 lg:bottom-0 md:bottom-10 left-0 z-30 layer layer-3"
       />
       <img
-        src="/assets/images/character.png"
-        class="absolute block bottom-20 right-60 scale-125 z-40 layer layer-4"
+        src="/assets/images/character2.png"
+        class="absolute block bottom-20 lg:bottom-20 md:-bottom-10 right-60 lg:right-60 md:-right-20 sm:-right-20 scale-125 lg:scale-125 md:scale-75 z-40 layer layer-4"
       />
 
       <div class="container mx-auto">
         <div class="flex flex-row">
           <div
-            class="px-9 py-12 mt-44 ml-44 backdrop-blur-xl bg-white/30 shrink basis-5/12 text-black z-50 rounded-xl"
+            class="px-9 py-12 mt-44 ml-44 backdrop-blur-xl bg-white/30 shrink basis-5/12 lg:basis-5/12 md:basis-4/6 text-black z-50 rounded-xl sm:ml-0"
           >
             <h2 class="text-5xl mb-8 candal text-[#240046]">
               From Your <br />
@@ -129,7 +129,7 @@
         <div
           class="border-2 w-[100rem] h-[100rem] absolute -bottom-[80rem] -left-[50rem] -z-20 border-blue-500 rounded-full opacity-50"
         ></div>
-        <div class="flex flex-row justify-evenly space-x-10 mx-40">
+        <div class="flex flex-col lg:flex-row md:flex-col sm:flex-col justify-evenly space-x-10 lg:mx-40 md:mx-10 sm:mx-5">
           <div class="p-10 bg-white rounded-md">
             <img
               src="https://bucket.mlcdn.com/a/3546/3546566/images/4ea685311d8d6f238333402ecc85be1087684b9b.jpeg"
@@ -195,7 +195,7 @@
         <h1 class="text-8xl text-[#240046] candal mb-4">Private <br />Sale</h1>
         <p class="text-2xl">Ends in</p>
         <ul
-          class="flex flex-row justify-evenly mt-20 text-[#5415EA]"
+          class="flex flex-row justify-evenly mt-20 text-[#5415EA] sm:space-x-8"
           data-date="2022-01-17 09:53:59"
           id="private-timer"
           data-zone="user_timezone"
@@ -246,14 +246,15 @@
         class="mystery-box-light w-[80rem] h-[80rem] absolute top-[10rem] left-[20rem] -z-30 bg-[#fff] blur-2xl rounded-full opacity-80"
       ></div>
       <div
-        class="w-[80rem] h-[80rem] absolute -top-[40rem] -right-[20rem] -z-40 bg-[#63c132] rounded-full opacity-50"
+        class="lg:w-[80rem] lg:h-[80rem] absolute lg:-top-[40rem] lg:-right-[20rem] -z-40 bg-[#63c132] rounded-full opacity-50 md:w-[40rem] md:h-[40rem] md:-top-[20rem] md:-right-[20rem]"
       ></div>
       <div
-        class="w-[80rem] h-[80rem] absolute -bottom-[40rem] -left-[20rem] -z-40 bg-[#ff6549] opacity-50"
+        class="lg:w-[80rem] lg:h-[80rem] absolute lg:-bottom-[40rem] lg:-left-[20rem] -z-40 bg-[#ff6549] opacity-50 md:w-[40rem] md:h-[40rem] md:bottom-0"-
       ></div>
       <div class="container mx-auto text-center relative z-20">
-        <div class="flex flex-row justify-end">
+        <div class="flex flex-row lg:justify-end md:justify-center sm:justify-center">
           <div class="content w-8/12">
+            <div class="sm:-mt-40 md:-mt-40">
             <h1 class="text-8xl text-[#240046] candal">
               <span class="text-[#660708]">MYSTERY CHEST</span> <br /><span
                 class="text-[#63C132]"
@@ -261,8 +262,10 @@
               >
             </h1>
             <p class="text-2xl mt-4">Ends in</p>
+
+            </div>
             <ul
-              class="flex flex-row justify-evenly mt-20 text-[#F72585]"
+              class="flex flex-row justify-evenly mt-20 text-[#F72585] sm:space-x-8 md:mt-60"
               data-date="2022-02-01 00:00:00"
               id="mystery-chest-timer"
               data-zone="user_timezone"
@@ -307,7 +310,7 @@
       </div>
       <img
         src="/assets/images/mystery_chest_nobg.png"
-        class="absolute left-52 top-60 scale-125"
+        class="absolute top-60 lg:scale-125 lg:left-52 md:scale-100 md:left-0 sm:scale-75 sm:left-0"
       />
     </div>
 
@@ -325,14 +328,14 @@
       <div class="container mx-auto -mt-64">
         <div class="flex flex-row justify-center">
           <div
-            class="basis-8/12 text-center text-white bg-[url('/assets/images/bg-footer.png')] bg-cover p-10 rounded-xl"
+            class="lg:basis-8/12 md:basis-10/12 text-center text-white bg-[url('/assets/images/bg-footer.png')] bg-cover p-10 rounded-xl"
           >
             <h1 class="text-4xl mt-4 font-bold">
               Subscribe <span class="font-normal">to the</span>
             </h1>
             <h1 class="text-4xl font-bold">Secrets of the Ark</h1>
             <div
-              class="border-2 border-[#4CC9F0] w-6/12 rounded-full mx-auto backdrop-blur-sm py-4 px-2 mt-10"
+              class="border-2 border-[#4CC9F0] w-6/12 lg:w-6/12 md:w-10/12 rounded-full mx-auto backdrop-blur-sm py-4 px-2 mt-10"
             >
       <form 
         action="https://static.mailerlite.com/webforms/submit/p6r5e9" 
