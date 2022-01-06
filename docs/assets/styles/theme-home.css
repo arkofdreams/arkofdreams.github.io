@@ -1749,10 +1749,6 @@ select {
     top: -20rem;
   }
 
-  .md\:right-0 {
-    right: 0px;
-  }
-
   .md\:-right-\[20rem\] {
     right: -20rem;
   }
