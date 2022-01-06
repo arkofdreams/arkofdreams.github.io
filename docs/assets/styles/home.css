@@ -1,31 +1,120 @@
+@import url("https://fonts.googleapis.com/css?family=Candal&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Inter&display=swap");
+
+.candal {
+  font-family: "Candal", sans-serif;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.head {
+  position: relative;
+  overflow: hidden;
+}
+
+.head:after {
+  content: "";
+  position: absolute;
+  height: 200px;
+  left: -10%;
+  right: -10%;
+  border-radius: 50%;
+  bottom: -62px;
+  background: #fff;
+  z-index: 50;
+  background: rgb(255, 255, 255);
+}
+
+
+.intro {
+  position: relative;
+  overflow: hidden;
+}
+
+.intro::after {
+  content: "";
+  position: absolute;
+  height: 200px;
+  left: -10%;
+  right: -10%;
+  border-radius: 50%;
+  bottom: -62px;
+  background: #fff;
+  z-index: 50;
+  background: rgba(188, 247, 255, 1);
+box-shadow: 0px -24px 95px 54px rgba(255,255,255,0.48);
+-webkit-box-shadow: 0px -24px 95px 54px rgba(255,255,255,0.48);
+-moz-box-shadow: 0px -24px 95px 54px rgba(255,255,255,0.48);
+}
+
+.private-sale-bg {
+  position: relative;
+  overflow:hidden;
+  background: rgb(188, 247, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(188, 247, 255, 0) 0%,
+    rgba(188, 247, 255, 1) 100%
+  );
+}
+
+.private-sale-bg::after {
+  content: "";
+  position: absolute;
+  height: 200px;
+  left: -10%;
+  right: -10%;
+  border-radius: 50%;
+  bottom: -62px;
+  z-index: 0;
+  background: rgb(255, 255, 255);
+}
+
+.private-sale {
+  position: relative;
+  overflow: hidden;
+}
+
+.private-sale::after {
+  content: "";
+  position: absolute;
+  height: 200px;
+  left: -10%;
+  right: -10%;
+  border-radius: 50%;
+  bottom: -62px;
+  background: #fff;
+  z-index: 40;
+  background: rgba(188, 247, 255, 1);
+}
+
 .mystery-box {
-    position: relative;
-    overflow:hidden;
+  position: relative;
+  overflow: hidden;
 }
 
 .mystery-box::after {
-    content: "";
-	position: absolute;
-    width: 110%;
-    height: 50%;
-    top: 0;
-    left: -5%;
-    border-radius: 50%;
-    box-shadow: 0px -400px 0px 300px white; 
+  content: "";
+  position: absolute;
+  height: 200px;
+  left: -10%;
+  right: -10%;
+  border-radius: 50%;
+  bottom: -120px;
+  background: #fff;
+  z-index: -10;
+  background: #262655;
+}
+
+.mystery-box-light {
+    box-shadow: -4px -5px 153px 39px rgba(255,255,255,0.75);
+    -webkit-box-shadow: -4px -5px 153px 39px rgba(255,255,255,0.75);
+    -moz-box-shadow: -4px -5px 153px 39px rgba(255,255,255,0.75);
 }
 
 .footer {
-    position: relative;
-    overflow:hidden;
-}
-
-.footer::after {
-    content: "";
-	position: absolute;
-    width: 110%;
-    height: 50%;
-    top: 0;
-    left: -5%;
-    border-radius: 50%;
-    box-shadow: 0px -400px 0px 300px white; 
+  position: relative;
+  overflow: hidden;
 }
