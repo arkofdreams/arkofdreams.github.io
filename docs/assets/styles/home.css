@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Candal&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Inter&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap");
+
+.besbas_neue {
+  font-family: "Bebas Neue", sans-serif;
+}
 
 .candal {
   font-family: "Candal", sans-serif;
