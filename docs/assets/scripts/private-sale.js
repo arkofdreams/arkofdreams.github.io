@@ -46,7 +46,7 @@
 
     const amount = parseFloat(input.value)
 
-    if (isNaN(amount) || amount < 100000 || amount > 600000) {
+    if (isNaN(amount) || amount < 20000 || amount > 600000) {
       input.style.border = '2px solid #DF0000'
       error.innerText = 'Invalid Amount'
       notes.innerText = ''
