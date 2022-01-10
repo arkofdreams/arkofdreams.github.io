@@ -128,7 +128,7 @@
       </a> for your status.
     </p>`
 
-    button.setAttribute('disabled', false);
+    button.setAttribute('disabled', false)
     button.disabled = false
     return false
   })
