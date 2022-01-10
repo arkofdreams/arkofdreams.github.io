@@ -124,10 +124,10 @@
                   type="number" 
                   placeholder="$AOD" 
                   class="form-input px-4 py-4 rounded-lg" 
-                  min="100000" 
+                  min="20000" 
                   max="600000" 
                   step="1"
-                  value="100000" 
+                  value="20000" 
                 />
                 <button 
                   placeholder="$AOD" 
@@ -135,11 +135,11 @@
                 >
                   Buy
                 </button>
-                <span> = <span id="conversion">2,500</span> BUSD</span>
+                <span> = <span id="conversion">500</span> BUSD</span>
                 <br /><br />
                 <small class="text-red-700 text-md"><b>You can only purchase once.</b> Make sure you input the right amount before pressing on "BUY".</small> 
-                <small class="text-gray-700 text-md">(Min: 100,000 $AOD Tokens | </small> 
-              <small class="text-gray-700 text-md">Max: 600,000 $AOD Tokens)</small>
+                <small class="text-gray-700 text-md">(Min: 20,000 $AOD Tokens | </small> 
+                <small class="text-gray-700 text-md">Max: 600,000 $AOD Tokens)</small>
                 <div class="text-sm text-gray-700" id="notes"></div>
                 <div class="text-sm" id="error"></div>
               </form>
@@ -198,7 +198,7 @@
               <b>Q1: Are there minimum and maximum amounts I can purchase?</b><br />
               <br />
               Yes, we are limiting the purchase amount per buyer:
-              <br />Minimum = 100,000 $AOD
+              <br />Minimum = 20,000 $AOD
               <br />Maximum = 600,000 $AOD
               <br /><br />
               <b>Q2: When is the token generation event (TGE)?</b>
@@ -261,7 +261,7 @@
         "chain": "BSC",
         "chain_name": "Binance Smart Chain (BSC)",
         "chain_id": 56,
-        "address": "0x35D3417E5a81cdaBA9254008F0b085C33721d030",
+        "address": "0x2D368564a298F6738049cbCDB25E689b6157dc35",
         "abi": [
           {
             "inputs": [
@@ -279,51 +279,6 @@
                 "internalType": "address",
                 "name": "fund",
                 "type": "address"
-              },
-              {
-                "internalType": "uint64",
-                "name": "_startDate",
-                "type": "uint64"
-              },
-              {
-                "internalType": "uint64",
-                "name": "_endDate",
-                "type": "uint64"
-              },
-              {
-                "internalType": "uint64",
-                "name": "_vestedDate",
-                "type": "uint64"
-              },
-              {
-                "internalType": "uint64",
-                "name": "_lockPeriod",
-                "type": "uint64"
-              },
-              {
-                "internalType": "uint256",
-                "name": "_tokenPrice",
-                "type": "uint256"
-              },
-              {
-                "internalType": "uint256",
-                "name": "_minimumBUSDAmount",
-                "type": "uint256"
-              },
-              {
-                "internalType": "uint256",
-                "name": "_maximumBUSDAmount",
-                "type": "uint256"
-              },
-              {
-                "internalType": "uint256",
-                "name": "_lockedTokens",
-                "type": "uint256"
-              },
-              {
-                "internalType": "uint256",
-                "name": "_vestedTokens",
-                "type": "uint256"
               }
             ],
             "stateMutability": "nonpayable",
@@ -490,12 +445,129 @@
           },
           {
             "inputs": [],
+            "name": "END_DATE",
+            "outputs": [
+              {
+                "internalType": "uint64",
+                "name": "",
+                "type": "uint64"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "LOCK_PERIOD",
+            "outputs": [
+              {
+                "internalType": "uint64",
+                "name": "",
+                "type": "uint64"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "MAXIMUM_BUSD_AMOUNT",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "MINIMUM_BUSD_AMOUNT",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
             "name": "PAUSER_ROLE",
             "outputs": [
               {
                 "internalType": "bytes32",
                 "name": "",
                 "type": "bytes32"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "START_DATE",
+            "outputs": [
+              {
+                "internalType": "uint64",
+                "name": "",
+                "type": "uint64"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "TOKEN_PRICE",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "TOTAL_POSSIBLE_LOCKED_TOKENS",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "TOTAL_POSSIBLE_VESTED_TOKENS",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "VESTED_DATE",
+            "outputs": [
+              {
+                "internalType": "uint64",
+                "name": "",
+                "type": "uint64"
               }
             ],
             "stateMutability": "view",
@@ -633,6 +705,47 @@
               }
             ],
             "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "erc20",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+              }
+            ],
+            "name": "emergencyERC20Transfer",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+              }
+            ],
+            "name": "emergencyTransfer",
+            "outputs": [],
+            "stateMutability": "nonpayable",
             "type": "function"
           },
           {
