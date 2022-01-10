@@ -120,7 +120,8 @@
     }
 
     form.innerHTML = `<p class="text-md mt-4">
-      <strong>Congrats!</strong> You should be receiving your mystery chest shortly. 
+      <strong>Congrats!</strong> You are now a proud owner of Arkonia ($AOD) Tokens, Arkonian! 
+      <br />The lock-in period will start on TGE, please refer to the release and vesting schedule on our whitepaper.
       <br />Please check 
       <a class="text-blue-600 underline font-semibold" href="https://bscscan.com/tx/${txHash}" target="_blank">
         bscscan.com
