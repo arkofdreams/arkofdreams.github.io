@@ -2,6 +2,11 @@
 @import url("https://fonts.googleapis.com/css?family=Inter&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap");
 
+* { 
+  outline: 1px solid red;
+  outline-offset: -1px;
+}
+
 .besbas_neue {
   font-family: "Bebas Neue", sans-serif;
 }
