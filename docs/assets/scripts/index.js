@@ -1,11 +1,12 @@
 (function() {
   function countdown(element) {
-    const to = new Date(element.getAttribute('data-date'))
+    const date = element.getAttribute('data-date').replace(/-/g,"/")
+    const to = new Date(date)
     const days = element.querySelector('span.days')
     const hours = element.querySelector('span.hours')
     const minutes = element.querySelector('span.minutes')
     const seconds = element.querySelector('span.seconds')
-    setInterval(() => {
+    setInterval(function(){
       const diff = to.getTime() - Date.now()
       if (diff < 0) {
         diff = 0
