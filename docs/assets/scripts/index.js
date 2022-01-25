@@ -1,11 +1,12 @@
 (function() {
   function countdown(element) {
-    const to = new Date(element.getAttribute('data-date'))
+    const date = element.getAttribute('data-date').replace(/-/g,"/")
+    const to = new Date(date)
     const days = element.querySelector('span.days')
     const hours = element.querySelector('span.hours')
     const minutes = element.querySelector('span.minutes')
     const seconds = element.querySelector('span.seconds')
-    setInterval(() => {
+    setInterval(function(){
       const diff = to.getTime() - Date.now()
       if (diff < 0) {
         diff = 0
@@ -25,4 +26,19 @@
 
   countdown(document.getElementById('private-timer'))
   countdown(document.getElementById('mystery-chest-timer'))
+
+  window.addEventListener("scroll", function(event) {
+    var topDistance = window.pageYOffset;
+    var layers = document.querySelectorAll("[data-type='parallax']");
+    for (var i = 0; i < layers.length; i++) {
+      var layer = layers[i];
+      var depth = layer.getAttribute("data-depth");
+      var translate3d = 'translate3d(0, ' + -(topDistance * depth) + 'px, 0)';
+      layer.style['-webkit-transform'] = translate3d;
+      layer.style['-moz-transform'] = translate3d;
+      layer.style['-ms-transform'] = translate3d;	
+      layer.style['-o-transform'] = translate3d;
+      layer.style.transform = translate3d;
+    }
+  });
 })()
