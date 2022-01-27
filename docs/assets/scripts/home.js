@@ -27,15 +27,6 @@
   countdown(document.getElementById("private-timer"))
   countdown(document.getElementById("mystery-chest-timer"))
 
-  // window.addEventListener("resize", function (event) {
-  //   var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
-  //   const mountain = document.getElementById("mountain")
-  //   if(windowWidth >= 3000){
-  //     console.log(windowWidth - 3000)
-  //     mountain.style.marginBottom =`-${windowWidth - 3000}px`;
-  //   }
-  // })
-
   window.addEventListener("scroll", function (event) {
     var topDistance = window.pageYOffset
     var layers = document.querySelectorAll("[data-type='parallax']")
