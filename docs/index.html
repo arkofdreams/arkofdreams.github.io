@@ -2,9 +2,9 @@
 <html>
   <head>
     <title>Ark of Dreams</title>
+    <link rel="stylesheet" href="./assets/styles/home.css" />
     <link rel="stylesheet" href="./assets/styles/theme-home.css" />
     <link rel="stylesheet" href="./assets/fonts/fontawesome/css/all.min.css" />
-    <link rel="stylesheet" href="./assets/styles/home.css" />
     <link
       rel="icon"
       type="image/png"
@@ -20,9 +20,9 @@
   </head>
   <body>
     <div
-      class="bg-blue-600 text-white bg-[url('/assets/images/last_skies.png')] bg-no-repeat bg-cover pb-5 3xl:h-[100rem] 2xl:h-[80rem] xl:h-[82rem] lg:h-[68rem] md:h-[60rem] sm:h-[68rem] relative z-0 head"
+      class="bg-blue-600 text-white bg-[url('/assets/images/last_skies.png')] bg-no-repeat bg-cover pb-5 5xl:h-[200rem] 4xl:h-[200rem] 3xl:h-[100rem] 2xl:h-[80rem] xl:h-[82rem] lg:h-[68rem] md:h-[70rem] sm:h-[80rem] relative z-0 head"
     >
-      <div class="flex flex-row px-10 py-10 justify-between z-50" style="z-index:99;">
+      <div class="flex flex-row px-10 py-10 justify-between z-50 w-full h-auto" style="z-index:9999;">
         <div>
           <img
             class="cursor-pointer"
@@ -50,11 +50,6 @@
             <li class="border-2 font-bold text-white rounded-full flex items-center justify-center font-mono cursor-pointer" style="height: 50px; width: 50px; padding: 12px;">
                 <a href="https://discord.com/invite/aod" target="_blank">
               <i class="fab fa-discord"></i>
-                </a>
-            </li>
-            <li class="border-2 font-bold text-white rounded-full flex items-center justify-center font-mono cursor-pointer" style="height: 50px; width: 50px; padding: 12px;">
-                <a href="https://bscscan.com/address/0x2a17D186590458f0ae74DCE2665AD0b3788f5a6e#code" target="_blank">
-                  <img src="/assets/images/bsc-icon.svg" />
                 </a>
             </li>
             <li class="border-2 font-bold text-white rounded-full flex items-center justify-center font-mono cursor-pointer" style="height: 50px; width: 50px; padding: 12px;">
@@ -89,7 +84,8 @@
         src="/assets/images/mountains.png"
         data-type="parallax"
         data-depth="0.10"
-        class="w-full absolute block
+        id="mountain"
+        class="w-full absolute block 
         2xl:bottom-0
         xl:bottom-10 
         lg:bottom-0 
@@ -133,7 +129,7 @@
             md:basis-4/6 
             xl:ml-24
             sm:ml-0 text-black 
-            sm:mt-0
+            sm:mt-10
             z-50 rounded-xl 
             "
           >
@@ -142,19 +138,19 @@
               <span class="text-[#ab59f8]">Real World</span> to <br />the
               <span class="text-[#ab59f8]">Metaverse</span>
             </h2>
-            <p class="2xl:text-2xl lg:text-lg text-[#240046] sm:text-3xl 3xl:text-5xl 3xl:leading-relaxed mb-8">
+            <p class="2xl:text-2xl text-[#240046] sm:text-3xl 3xl:text-5xl 3xl:leading-relaxed">
               AoD is a unique and immersive blockchain based shared human
               experience NFT game connecting your real world to the metaverse.
               Our meta-economy is run on the BINANCE SMART CHAIN using Arkonia
               ($AOD) tokens which can be used for real world transaction
-            </p>
               <a 
-                class="d-block md-d-hide mt-4 text-center bg-white px-6 py-3 text-blue-600 cursor-pointer font-bold rounded-full 2xl:text-2xl lg:text-lg sm:text-3xl 3xl:text-5xl"
-                href="https://hello-51.gitbook.io/arkofdreamsio/" 
-                target="_blank"
-              >
-                Read the White Paper
-              </a>
+              class="d-block md-d-hide mt-4 text-center bg-white px-6 py-3 text-blue-600 cursor-pointer font-bold rounded-full 2xl:text-2xl lg:text-lg sm:text-3xl 3xl:text-5xl"
+              href="https://hello-51.gitbook.io/arkofdreamsio/" 
+              target="_blank"
+            >
+              Read the White Paper
+            </a>
+            </p>
           </div>
         </div>
       </div>
@@ -476,6 +472,6 @@
         </ul>
       </div>
     </div>
-    <script type="text/javascript" src="/assets/scripts/home.js?v=1.1"></script>
+    <script type="text/javascript" src="/assets/scripts/home.js"></script>
   </body>
 </html>
