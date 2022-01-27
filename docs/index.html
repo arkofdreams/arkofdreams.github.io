@@ -2,188 +2,388 @@
 <html>
   <head>
     <title>Ark of Dreams</title>
-    <link rel="stylesheet" href="./assets/styles/theme.css" />
-    <link rel="stylesheet" href="./assets/styles/global.css" />
-    <link rel="stylesheet" href="./assets/styles/index.css" />
+    <link rel="stylesheet" href="./assets/styles/theme-home.css" />
     <link rel="stylesheet" href="./assets/fonts/fontawesome/css/all.min.css" />
-    <link rel="icon" type="image/png" sizes="32x32" href="https://bucket.mlcdn.com/a/3546/3546566/images/31e38835c3aaa2482f815267359eb1c4ca897cf0.png/543cbfc1c7412f7c9ced2497d0dcd0ebe45329de.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="https://bucket.mlcdn.com/a/3546/3546566/images/31e38835c3aaa2482f815267359eb1c4ca897cf0.png/a8b1bff5ac36580089abf16c8d935acbb6f4a75b.png" />
+    <link rel="stylesheet" href="./assets/styles/home.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://bucket.mlcdn.com/a/3546/3546566/images/31e38835c3aaa2482f815267359eb1c4ca897cf0.png/543cbfc1c7412f7c9ced2497d0dcd0ebe45329de.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://bucket.mlcdn.com/a/3546/3546566/images/31e38835c3aaa2482f815267359eb1c4ca897cf0.png/a8b1bff5ac36580089abf16c8d935acbb6f4a75b.png"
+    />
   </head>
   <body>
-    <header class="head">
-      <div class="container mx-auto pt-4">
-        <div class="flex flex-row">
-          <div class="basis-4/12 cursor-pointer">
-            <a href="/">
-              <img src="./assets/images/aod-logo-horz.png" width="200" />
-            </a>
-          </div>
-          <nav class="basis-8/12">
-            <ul class="flex flex-row justify-end navbar">
-              <li class="px-2">
-                <a href="https://facebook.com/ArkOfDreamsio" target="_blank">
-                  <i class="fab fa-facebook-square fa-lg"></i>
-                </a>
-              </li>
-              <li class="px-2">
+    <div
+      class="bg-blue-600 text-white bg-[url('/assets/images/last_skies.png')] bg-no-repeat bg-cover pb-5 3xl:h-[100rem] 2xl:h-[80rem] xl:h-[82rem] lg:h-[68rem] md:h-[60rem] sm:h-[68rem] relative z-0 head"
+    >
+      <div class="flex flex-row px-10 py-10 justify-between z-50" style="z-index:99;">
+        <div>
+          <img
+            class="cursor-pointer"
+            src="assets/images/white-logo.png"
+            alt="logo"
+          />
+        </div>
+        <div>
+          <ul class="flex flex-row space-x-6 text-lg">
+            <li class="border-2 font-bold text-white rounded-full flex items-center justify-center font-mono cursor-pointer" style="height: 50px; width: 50px; padding: 12px;">
                 <a href="https://twitter.com/ArkOfDreams" target="_blank">
-                  <i class="fab fa-twitter-square fa-lg"></i>
-                </a>
-              </li>
-              <li class="px-2">
+              <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li class="border-2 font-bold text-white rounded-full flex items-center justify-center font-mono cursor-pointer" style="height: 50px; width: 50px; padding: 12px;">
+                <a href="https://facebook.com/ArkOfDreamsio" target="_blank">
+              <i class="fab fa-facebook"></i>
+              </a>
+            </li>
+            <li class="border-2 font-bold text-white rounded-full flex items-center justify-center font-mono cursor-pointer" style="height: 50px; width: 50px; padding: 12px;">
                 <a href="https://instagram.com/arkofdreams" target="_blank">
-                  <i class="fab fa-instagram-square fa-lg"></i>
-                </a>
-              </li>
-              <li class="px-2">
+              <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+            <li class="border-2 font-bold text-white rounded-full flex items-center justify-center font-mono cursor-pointer" style="height: 50px; width: 50px; padding: 12px;">
                 <a href="https://discord.com/invite/aod" target="_blank">
-                  <i class="fab fa-discord fa-lg"></i>
+              <i class="fab fa-discord"></i>
                 </a>
-              </li>
-              <li class="px-2">
+            </li>
+            <li class="border-2 font-bold text-white rounded-full flex items-center justify-center font-mono cursor-pointer" style="height: 50px; width: 50px; padding: 12px;">
+                <a href="https://bscscan.com/address/0x2a17D186590458f0ae74DCE2665AD0b3788f5a6e#code" target="_blank">
+                  <img src="/assets/images/bsc-icon.svg" />
+                </a>
+            </li>
+            <li class="border-2 font-bold text-white rounded-full flex items-center justify-center font-mono cursor-pointer" style="height: 50px; width: 50px; padding: 12px;">
                 <a href="https://github.com/arkofdreams/" target="_blank">
-                  <i class="fab fa-github fa-lg"></i>
-                </a>
-              </li>
-              <li class="px-2 cursor-pointer">
+              <i class="fab fa-github"></i>
+              </a>
+            </li>
+            <li
+              class="bg-white px-6 py-3 text-blue-600 cursor-pointer font-bold rounded-full"
+            >
                 <a href="https://hello-51.gitbook.io/arkofdreamsio/" target="_blank">
                   White Paper
                 </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <img
+        src="/assets/images/arc_ship2.png"
+        data-type="parallax"
+        data-depth="0.30"
+        class="absolute block
+        3xl:top-[10rem] 3xl:scale-150 3xl:left-40
+        2xl:top-[10rem] 2xl:scale-100 2xl:left-10
+        xl:top-[10rem] xl:scale-100 xl:left-0 
+        lg:top-[10rem] lg:left-0 lg:scale-100  
+        md:top-52 left-0 md:left-0 scale-100 md:scale-150 
+        sm:scale-100 z-10 layer layer-1  "
+      />
+      <img
+        src="/assets/images/mountains.png"
+        data-type="parallax"
+        data-depth="0.10"
+        class="w-full absolute block
+        2xl:bottom-0
+        xl:bottom-10 
+        lg:bottom-0 
+        md:bottom-0 
+        sm:bottom-0 
+        left-0 z-20 layer layer-2"
+      />
+      <img
+        src="/assets/images/grass.png"
+        data-type="parallax"
+        data-depth="0.10"
+        class="w-full absolute block 
+        2xl:-bottom-20
+        xl:bottom-0 
+        lg:bottom-0 
+        md:bottom-10 
+        sm:bottom-10 
+        left-0 z-30 layer layer-3"
+      />
+      <img
+        src="/assets/images/character2.png"
+        class="absolute block 
+        3xl:scale-x-150
+        3xl:right-40
+        lg:bottom-20 
+        md:-bottom-10 right-60 
+        lg:right-0 lg:scale-125  
+        md:-right-20 md:scale-75  
+        sm:-right-20 
+        scale-125 z-40 layer layer-4"
+      />
+
+      <div class="container mx-auto">
+        <div class="flex flex-row">
+          <div
+            class="px-9 py-12 mt-44 ml-44 backdrop-blur-xl bg-white/30 shrink basis-5/12 
+            3xl:mt-80
+            3xl:ml-44
+            2xl:mt-60
+            lg:basis-6/12 lg:ml-20 
+            md:basis-4/6 
+            xl:ml-24
+            sm:ml-0 text-black 
+            sm:mt-0
+            z-50 rounded-xl 
+            "
+          >
+            <h2 class="text-5xl mb-8 candal text-[#240046] xl:text-5xl 3xl:text-8xl">
+              From Your <br />
+              <span class="text-[#ab59f8]">Real World</span> to <br />the
+              <span class="text-[#ab59f8]">Metaverse</span>
+            </h2>
+            <p class="2xl:text-2xl lg:text-lg text-[#240046] sm:text-3xl 3xl:text-5xl 3xl:leading-relaxed mb-8">
+              AoD is a unique and immersive blockchain based shared human
+              experience NFT game connecting your real world to the metaverse.
+              Our meta-economy is run on the BINANCE SMART CHAIN using Arkonia
+              ($AOD) tokens which can be used for real world transaction
+            </p>
+              <a 
+                class="d-block md-d-hide mt-4 text-center bg-white px-6 py-3 text-blue-600 cursor-pointer font-bold rounded-full 2xl:text-2xl lg:text-lg sm:text-3xl 3xl:text-5xl"
+                href="https://hello-51.gitbook.io/arkofdreamsio/" 
+                target="_blank"
+              >
+                Read the White Paper
+              </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-40 pb-60 intro -mt-40 z-50">
+      <div class="container mx-auto relative z-40">
+        <div
+          class="border-l-[1rem] border-b-[1rem] w-[100rem] h-[25rem] absolute -top-[5rem] -right-[80rem] -z-20 border-[#63C132] rounded-3xl opacity-50"
+        ></div>
+        <div
+          class="border-[2rem] w-[50rem] h-[50rem] absolute -top-[1rem] right-[80rem] -z-20 border-yellow-100 rounded-full opacity-50"
+        ></div>
+        <div
+          class="border-2 w-[100rem] h-[100rem] absolute -top-[80rem] left-[50rem] -z-20 border-yellow-100 rounded-full opacity-50"
+        ></div>
+        <div
+          class="border-[5rem] w-[80rem] h-[80rem] absolute -bottom-[70rem] -right-[10rem] -z-40 border-red-500 rounded-full opacity-50"
+        ></div>
+        <div
+          class="border-2 w-[100rem] h-[100rem] absolute -bottom-[80rem] -left-[50rem] -z-20 border-blue-500 rounded-full opacity-50"
+        ></div>
+        <div class="flex 3xl:flex-row 2xl:flex-row xl:flex-col lg:flex-col md:flex-col sm:flex-col justify-around space-x-10 3xl:mx-40 2xl:mx-20 sm:space-x-0 md:space-x-0">
+        <!-- <div class="flex flex-row justify-around space-x-10 mx-40"> -->
+          <div class="bg-white rounded-md px-10 py-10 basis-1/3">
+            <img
+              src="assets/images/section_1.png"
+              class="rounded-xl w-full h-auto 2xl:h-60 3xl:h-80"
+            />
+            <h1 class="candal lg:text-2xl py-6 text-[#5415EA] sm:text-5xl">
+              REAL WORLD <br />TRANSACTIONS <br />
+              <span class="text-4xl">-</span>
+            </h1>
+            <p class="lg:text-lg text-[#444] sm:text-3xl sm:leading-relaxed">
+              Transact as your Meta-Identity in a game environment & use $AOD
+              tokens and get real life perks from brands you love.
+              <span class="text-[#5415EA]">X2Earn - Play2Earn, Stake2Earn, Buy2Earn Sell2Earn</span>
+              - it is limitless in the realm of eCommerce, eSports, eLearning
+              and eHealth.
+            </p>
+          </div>
+          <div class="bg-white rounded-md px-10 py-10 sm:text-5xl basis-1/3">
+            <img
+              src="assets/images/section_2.png"
+              class="rounded-xl w-full h-auto 2xl:h-60 3xl:h-80"
+            />
+            <h1 class="candal lg:text-2xl py-6 text-[#63C132] sm:text-5xl">
+              ACTIVE AND <br />
+              FUNCTIONAL NFTS <br />
+              <span class="text-4xl">-</span>
+            </h1>
+            <p class="lg:text-lg text-[#444] sm:text-3xl sm:leading-relaxed">
+              <span class="text-[#63C132]"
+                >Create or own Non Fungible Tokens</span
+              >
+              with yielding and active, transactional features, a unique asset
+              that you own. Creative communities can take part in a marketplace.
+              Collect from iconic brands and digital artists.
+            </p>
+          </div>
+          <div class="bg-white rounded-md px-10 py-10 basis-1/3">
+            <img
+              src="assets/images/section_3.png"
+              class="rounded-xl w-full h-auto 2xl:h-60 3xl:h-80"
+            />
+            <h1 class="candal lg:text-2xl py-6 text-[#F72585] sm:text-5xl">
+              BY THE PEOPLE, <br />
+              FOR THE PEOPLE <br />
+              <span class="text-4xl">-</span>
+            </h1>
+            <p class="lg:text-lg text-[#444] sm:text-3xl sm:leading-relaxed">
+              We are powered by Smart Contracts, and every activity in recorded
+              in the Blockchain. With a DAO, we can build together globally.
+              <span class="text-[#F72585]"
+                >20% of all our transactions go to our social impact fund.</span
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-20 h-[82rem] relative private-sale-bg">
+      <div class="container mx-auto text-center relative z-20">
+        <h1 class="text-8xl text-[#240046] candal mb-4 3xl:text-9xl">Private <br />Sale</h1>
+        <p class="text-2xl 3xl:text-4xl">Ends in</p>
+        <ul
+          class="flex flex-row justify-center sm:space-x-8  mt-20 text-[#5415EA] "
+          data-date="2022-01-31 09:53:59" 
+          id="private-timer"
+          data-zone="user_timezone"
+          data-user_timezone="Asia/Manila"
+          data-account_timezone="Asia/Hong_Kong"
+        >
+          <li
+            class="p-10 border-4 border-[#A8ABFF] rounded-xl backdrop-blur-xl bg-white/30"
+          >
+            <span class="text-8xl mb-4 days besbas_neue">00</span>
+            <p class="text-4xl text-[#240046]">Days</p>
+          </li>
+          <li
+            class="p-10 border-4 border-[#A8ABFF] rounded-xl backdrop-blur-xl bg-white/30"
+          >
+            <span class="text-8xl mb-4 hours besbas_neue">00</span>
+            <p class="text-4xl text-[#240046]">Hours</p>
+          </li>
+          <li
+            class="p-10 border-4 border-[#A8ABFF] rounded-xl backdrop-blur-xl bg-white/30"
+          >
+            <span class="text-8xl mb-4 minutes besbas_neue">00</span>
+            <p class="text-4xl text-[#240046]">Mins</p>
+          </li>
+          <li
+            class="p-10 border-4 border-[#A8ABFF] rounded-xl backdrop-blur-xl bg-white/30"
+          >
+            <span class="text-8xl mb-4 seconds besbas_neue">00</span>
+            <p class="text-4xl text-[#240046]">Secs</p>
+          </li>
+        </ul>
+        <div class="flex flex-row justify-center">
+          <a href="/private-sale.html"
+            class="w-[30rem] py-8 px-10 text-white bg-[#7544EB] rounded-full mt-20 text-4xl text-center cursor-pointer"
+          >
+            Join the <b>Private Sale</b> <i class="fa fa-chevron-right"></i>
+          </a>
+        </div>
+      </div>
+      <img
+        src="/assets/images/private-sale-bg.png"
+        class="w-full absolute bottom-0 left-0 z-0"
+      />
+    </div>
+
+    <div class="pt-64 pb-[24rem] mystery-box -mt-30 z-50">
+      <div
+        class="mystery-box-light w-[80rem] h-[80rem] absolute top-[10rem] left-[20rem] -z-30 bg-[#fff] blur-2xl rounded-full opacity-80"
+      ></div>
+      <div
+        class="lg:w-[80rem] lg:h-[80rem] absolute lg:-top-[40rem] lg:-right-[20rem] -z-40 bg-[#63c132] rounded-full opacity-50 md:w-[40rem] md:h-[40rem] md:-top-[20rem] md:-right-[20rem]"
+      ></div>
+      <div
+        class="lg:w-[80rem] lg:h-[80rem] absolute lg:-bottom-[40rem] lg:-left-[20rem] -z-40 bg-[#ff6549] opacity-50 md:w-[40rem] md:h-[40rem] md:bottom-0"-
+      ></div>
+      <div class="container mx-auto text-center relative z-20">
+        <div class="flex flex-row xl:justify-end lg:justify-center md:justify-center sm:justify-center">
+          <div class="content w-8/12">
+            <div class="sm:-mt-60 md:-mt-60">
+            <h1 class="text-8xl text-[#240046] candal">
+              <span class="text-[#660708]">MYSTERY CHEST</span> <br /><span
+                class="text-[#63C132]"
+                >NFT DROP</span
+              >
+            </h1>
+            <p class="text-2xl mt-4">Ends in</p>
+
+            </div>
+            <ul
+              class="flex flex-row justify-center mt-20 text-[#F72585] sm:space-x-8 md:mt-60"
+              data-date="2022-02-01 00:00:00"
+              id="mystery-chest-timer"
+              data-zone="user_timezone"
+              data-user_timezone="Asia/Manila"
+              data-account_timezone="Asia/Hong_Kong"
+            >
+              <li
+                class="p-10 border-4 border-[#F72585] rounded-xl backdrop-blur-xl bg-white/30"
+              >
+                <span class="text-8xl mb-4 days besbas_neue">00</span>
+                <p class="text-4xl text-[#660708]">Days</p>
+              </li>
+              <li
+                class="p-10 border-4 border-[#F72585] rounded-xl backdrop-blur-xl bg-white/30"
+              >
+                <span class="text-8xl mb-4 hours besbas_neue">00</span>
+                <p class="text-4xl text-[#660708]">Hours</p>
+              </li>
+              <li
+                class="p-10 border-4 border-[#F72585] rounded-xl backdrop-blur-xl bg-white/30"
+              >
+                <span class="text-8xl mb-4 minutes besbas_neue">00</span>
+                <p class="text-4xl text-[#660708]">Mins</p>
+              </li>
+              <li
+                class="p-10 border-4 border-[#F72585] rounded-xl backdrop-blur-xl bg-white/30"
+              >
+                <span class="text-8xl mb-4 seconds besbas_neue">00</span>
+                <p class="text-4xl text-[#660708]">Secs</p>
               </li>
             </ul>
-          </nav>
+            <div class="flex flex-row justify-center">
+              <a href="/mystery-chest.html"
+                class="w-[30rem] py-8 px-10 text-white bg-[#F72585] rounded-full mt-20 text-2xl text-center cursor-pointer"
+              >
+                Claim your <b>Mystery Chest</b>
+                <i class="fa fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </header>
-    <section class="section-1">
-      <img src="./assets/images/bg-fade.png" />
-      <div class="copy">
-        <h1>From Your Real World to the Metaverse</h1>
+      <img
+        src="/assets/images/mystery_chest_nobg.png"
+        class="3xl:left-[40rem] 3xl:scale-[1.7] absolute top-60 lg:scale-125 lg:left-52 md:scale-100 md:left-0 sm:scale-75 sm:left-0"
+      />
+    </div>
 
-        <p>AoD is a unique and immersive blockchain based shared human 
-        experience NFT game connecting your real world to the metaverse. 
-        Our meta-economy is run on the BINANCE SMART CHAIN using 
-        <strong>Arkonia ($AOD) tokens</strong> which can be used for 
-        real world transaction</p>
-      </div>
-    </section>
-    <section class="section-2">
-      <div class="container mx-auto">
-        <div class="flex flex-row">
-          <div>
-            <img src="https://bucket.mlcdn.com/a/3546/3546566/images/4ea685311d8d6f238333402ecc85be1087684b9b.jpeg" />
-          </div>
-          <div class="copy ml-4">
-            <h2>Real World Transactions</h2>
-            <p>Transact as your Meta-Identity in a game environment and 
-            use $AOD tokens and get real life perks from brands you love. 
-            X2Earn - Play2Earn, Stake2Earn, Buy2Earn Sell2Earn - it is limitless 
-            in the realm of eCommerce, eSports, eLearning and eHealth.</p>
-          </div>
-        </div>
-        <div class="flex flex-row">
-          <div class="copy mr-3">
-            <h2>Active and Functional NFTs</h2>
-            <p>Create or own Non Fungible Tokens with yielding and active, 
-            transactional features, a unique asset that you own. Creative 
-            communities can take part in a marketplace. Collect from iconic 
-            brands and digital artists.</p>
-          </div>
-          <div>
-            <img src="https://bucket.mlcdn.com/a/3546/3546566/images/76c63f16dade98727062d400ba2c7dd39a6e3ead.jpeg" />
-          </div>
-        </div>
-        <div class="flex flex-row">
-          <div>
-            <img src="https://bucket.mlcdn.com/a/3546/3546566/images/ab63c7f9a275919180fca4b79990331b38afef7e.jpeg" />
-          </div>
-          <div class="copy ml-4">
-            <h2>By the People, For the People</h2>
-            <p>We are powered by Smart Contracts, and every activity in 
-            recorded in the Blockchain. With a DAO, we can build together 
-            globally. 20% of all our transactions go to our social impact 
-            fund.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="section-3">
-      <h2>Private Sale</h2>
-      <h6>ENDS IN</h6>
-      <div class="container mx-auto">
-        <div 
-          class="countdown countdown flex flex-row" 
-          data-date="2022-01-31 09:53:59" 
-          id="private-timer" 
-          data-zone="user_timezone" 
-          data-user_timezone="Asia/Manila" 
-          data-account_timezone="Asia/Hong_Kong"
-        > 
-          <div class="countdown-item"> 
-            <span class="days">00</span> 
-            <small>Days</small> 
-          </div> 
-          <div class="countdown-item"> 
-            <span class="hours">00</span> 
-            <small>Hours</small> 
-          </div> 
-          <div class="countdown-item"> 
-            <span class="minutes">00</span> 
-            <small>Mins</small> 
-          </div> 
-          <div class="countdown-item"> 
-            <span class="seconds">00</span> 
-            <small>Secs</small> 
-          </div> 
-        </div>
-      </div>
-      <a 
-        class="bg-green-500 text-white font-bold border-green-700 hover:bg-green-400 cursor-pointer"
-        href="./private-sale.html"
-      >
-        Join the Private Sale
-      </a>
-    </section>
-    <section class="section-4">
-      <h2>Mystery Chest NFT Drop</h2>
-      <h6>ENDS IN</h6>
-      <div class="container mx-auto">
-        <div 
-          class="countdown countdown flex flex-row" 
-          data-date="2022-02-28 00:00:00" 
-          id="mystery-chest-timer" 
-          data-zone="user_timezone" 
-          data-user_timezone="Asia/Manila" 
-          data-account_timezone="Asia/Hong_Kong"
-        > 
-          <div class="countdown-item"> 
-            <span class="days">00</span> 
-            <small>Days</small> 
-          </div> 
-          <div class="countdown-item"> 
-            <span class="hours">00</span> 
-            <small>Hours</small> 
-          </div> 
-          <div class="countdown-item"> 
-            <span class="minutes">00</span> 
-            <small>Mins</small> 
-          </div> 
-          <div class="countdown-item"> 
-            <span class="seconds">00</span> 
-            <small>Secs</small> 
-          </div> 
-        </div>
-      </div>
-      <a 
-        class="bg-blue-500 text-white font-bold border-blue-700 hover:bg-blue-400 cursor-pointer"
-        href="./mystery-chest.html"
-      >
-        Claim Your Mystery Chest
-      </a>
-    </section>
-    <section class="section-5">
-      <h2>Subscribe to the Secrets of the Ark.</h2>
-      <p>We will tell you once you are ready to know.</p>
+    <div
+      class="bg-[#240046] pt-20 pb-4 z-50 relative"
+      style="
+        background: rgb(4, 93, 255);
+        background: radial-gradient(
+          circle,
+          rgba(4, 93, 255, 1) 0%,
+          rgba(36, 0, 70, 1) 100%
+        );
+      "
+    >
+      <div class="container mx-auto -mt-64">
+        <div class="flex flex-row justify-center">
+          <div
+            class="lg:basis-8/12 md:basis-10/12 text-center text-white bg-[url('/assets/images/bg-footer.png')] bg-cover p-10 rounded-xl"
+          >
+            <h1 class="text-4xl mt-4 font-bold">
+              Subscribe <span class="font-normal">to the</span>
+            </h1>
+            <h1 class="text-4xl font-bold">Secrets of the Ark</h1>
+            <div
+              class="border-2 border-[#4CC9F0] w-6/12 lg:w-6/12 md:w-10/12 rounded-full mx-auto backdrop-blur-sm py-4 px-2 mt-10"
+            >
       <form 
         action="https://static.mailerlite.com/webforms/submit/p6r5e9" 
         data-webform-type="webpage" 
@@ -192,61 +392,90 @@
         data-redirect-target="" 
         method="POST"
       > 
-        <div class="input-group ml-field-email ml-validate-required ml-validate-email"> 
+              <div class="flex flex-row justify-between">
+                <p class="text-2xl align-middle ml-5 mt-2">
           <input 
             aria-required="true" 
             aria-label="email" 
             type="email" 
-            class="form-control" 
+            class="text-xl border-none bg-transparent text-white placeholder:text-white outline-none" 
             name="fields[email]" 
-            placeholder="Email" 
+            placeholder="Email your email address" 
             aria-invalid="false"
           /> 
-          <span class="input-group-append button-block pl-0 pl-md-2"> 
-            <button class="bg-green-500 text-white font-bold border-green-700 hover:bg-green-400 cursor-pointer">
-              Subscribe
-            </button> 
-          </span> 
-        </div>  
-        <input type="hidden" name="ml-submit" value="1" aria-invalid="false"> 
-      </form>
-    </section>
-    <footer class="foot">
-      <div>
-        <h6><span>Powered By</span></h6>
-        <img src="https://bucket.mlcdn.com/a/3546/3546566/images/c128667af80fe8c7e269d341fcae72650a29e977.png" />
+                </p>
+                <button
+                  class="py-3 px-5 cursor-pointer rounded-full"
+                  style="
+                    background: linear-gradient(
+                      180deg,
+                      #00bbf9 0%,
+                      #5415ea 100%
+                    );
+                  "
+                  >Submit</button
+                >
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <h4>FOLLOW US AND JOIN THE AoD COMMUNITY!</h4>
-      <ul class="flex flex-row justify-center">
-        <li class="px-2">
-          <a href="https://facebook.com/ArkOfDreamsio" target="_blank">
-            <i class="fab fa-facebook-square fa-lg"></i>
-          </a>
-        </li>
-        <li class="px-2">
-          <a href="https://twitter.com/ArkOfDreams" target="_blank">
-            <i class="fab fa-twitter-square fa-lg"></i>
-          </a>
-        </li>
-        <li class="px-2">
-          <a href="https://instagram.com/arkofdreams" target="_blank">
-            <i class="fab fa-instagram-square fa-lg"></i>
-          </a>
-        </li>
-        <li class="px-2">
-          <a href="https://discord.com/invite/aod" target="_blank">
-            <i class="fab fa-discord fa-lg"></i>
-          </a>
-        </li>
-        <li class="px-2">
-          <a href="https://github.com/arkofdreams/" target="_blank">
-            <i class="fab fa-github fa-lg"></i>
-          </a>
-        </li>
-      </ul>
-      <h5>Copyright 2021  Ark of Dreams</h5>
-      <h5>Innovative Impact Ventures, Inc</h5>
-    </footer>
-    <script type="text/javascript" src="./assets//scripts/index.js"></script>
+
+      <div class="container mx-auto text-center text-white mt-20">
+        <h1 class="lg:text-5xl sm:text-5xl md:text-5xl">
+          Follow us and <br />
+          Join the <span class="text-[#63C132]">AOD</span> community!
+        </h1>
+        <ul class="flex flex-row justify-center space-x-4 xl:text-lg lg:text-5xl sm:text-5xl md:text-5xl mt-10">
+            <li class="border-2 font-bold text-white rounded-full flex items-center justify-center font-mono cursor-pointer h-14 w-14 p-10 xl:p-6 lg:p-10">
+                <a href="https://twitter.com/ArkOfDreams" target="_blank">
+              <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li class="border-2 font-bold text-white rounded-full flex items-center justify-center font-mono cursor-pointer h-14 w-14 p-10 xl:p-6 lg:p-10 ">
+                <a href="https://facebook.com/ArkOfDreamsio" target="_blank">
+              <i class="fab fa-facebook"></i>
+              </a>
+            </li>
+            <li class="border-2 font-bold text-white rounded-full flex items-center justify-center font-mono cursor-pointer h-14 w-14 p-10 xl:p-6 lg:p-10 ">
+                <a href="https://instagram.com/arkofdreams" target="_blank">
+              <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+            <li class="border-2 font-bold text-white rounded-full flex items-center justify-center font-mono cursor-pointer h-14 w-14 p-10  xl:p-6 lg:p-10">
+                <a href="https://discord.com/invite/aod" target="_blank">
+              <i class="fab fa-discord"></i>
+                </a>
+            </li>
+            <li class="border-2 font-bold text-white rounded-full flex items-center justify-center font-mono cursor-pointer h-14 w-14 p-10  xl:p-6 lg:p-10">
+                <a href="https://github.com/arkofdreams/" target="_blank">
+              <i class="fab fa-github"></i>
+              </a>
+            </li>
+        </ul>
+      </div>
+
+      <div class="container mx-auto text-center text-white my-20">
+        <ul
+          class="flex flex-row justify-center space-x-20 text-md mt-60 font-bold sm:text-2xl md:text-2xl lg:text-2xl"
+        >
+          <li class="cursor-pointer"><a href="terms-and-conditions.html">Terms & Conditions</a></li>
+          <li class="cursor-pointer"><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li class="cursor-pointer"><a href="legal.html">Legal</a></li>
+        </ul>
+      </div>
+
+      <div class="container mx-auto text-center text-white">
+        <ul class="flex flex-row justify-evenly ">
+          <li class="cursor-pointer">
+            <img src="assets/images/white-logo.png" class="mx-auto" />
+          </li>
+          <li>Innovative Impact Ventures, Inc</li>
+          <li>© Copyright 2021</li>
+        </ul>
+      </div>
+    </div>
+    <script type="text/javascript" src="/assets/scripts/home.js?v=1.1"></script>
   </body>
 </html>
