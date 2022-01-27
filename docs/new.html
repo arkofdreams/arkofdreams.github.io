@@ -19,10 +19,86 @@
     />
   </head>
   <body>
+    <!-- <div class="w-full header">
+      <img src="/assets/images/last_skies.png" class="object-none w-full" />
+      <img src="/assets/images/arc_ship2.png" data-type="parallax" data-depth="0.20" class="object-none absolute bottom-0 arc" style="top:0; left:0; width:70%;" />
+      <img src="/assets/images/mountains.png" data-type="parallax" data-depth="0.10" class="object-none w-full absolute" style="bottom:-2%;"  />
+      <img src="/assets/images/grass.png"  class="object-none w-full absolute" style="bottom:0;" />
+      <img src="/assets/images/character2.png" class="absolute" style="bottom:0; right:0; width: 30%;" />
+
+      <div class="flex flex-row px-10 py-10 justify-between z-50 absolute" style="z-index:99; top:0; left:0;">
+        <div>
+          <img
+            class="cursor-pointer"
+            src="assets/images/white-logo.png"
+            alt="logo"
+          />
+        </div>
+      </div>
+      <div class="flex flex-row px-10 py-10 justify-between z-50 absolute" style="z-index:99; top:0; right:0;">
+        <div>
+          <ul class="flex flex-row space-x-6 text-lg">
+            <li class="border-2 font-bold text-white rounded-full flex items-center justify-center font-mono cursor-pointer" style="height: 50px; width: 50px; padding: 12px;">
+                <a href="https://twitter.com/ArkOfDreams" target="_blank">
+              <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li class="border-2 font-bold text-white rounded-full flex items-center justify-center font-mono cursor-pointer" style="height: 50px; width: 50px; padding: 12px;">
+                <a href="https://facebook.com/ArkOfDreamsio" target="_blank">
+              <i class="fab fa-facebook"></i>
+              </a>
+            </li>
+            <li class="border-2 font-bold text-white rounded-full flex items-center justify-center font-mono cursor-pointer" style="height: 50px; width: 50px; padding: 12px;">
+                <a href="https://instagram.com/arkofdreams" target="_blank">
+              <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+            <li class="border-2 font-bold text-white rounded-full flex items-center justify-center font-mono cursor-pointer" style="height: 50px; width: 50px; padding: 12px;">
+                <a href="https://discord.com/invite/aod" target="_blank">
+              <i class="fab fa-discord"></i>
+                </a>
+            </li>
+            <li class="border-2 font-bold text-white rounded-full flex items-center justify-center font-mono cursor-pointer" style="height: 50px; width: 50px; padding: 12px;">
+                <a href="https://github.com/arkofdreams/" target="_blank">
+              <i class="fab fa-github"></i>
+              </a>
+            </li>
+            <li
+              class="bg-white px-6 py-3 text-blue-600 cursor-pointer font-bold rounded-full"
+            >
+                <a href="https://hello-51.gitbook.io/arkofdreamsio/" target="_blank">
+                  White Paper
+                </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container mx-auto absolute welcome">
+        <div class="flex flex-row">
+          <div
+            class="px-9 py-12 mt-44 ml-44 backdrop-blur-xl bg-white/30 shrink basis-5/12 z-50 rounded-xl"
+          >
+            <h2 class="text-5xl mb-8 candal text-[#240046] welcome-header">
+              From Your <br />
+              <span class="text-[#ab59f8]">Real World</span> to <br />the
+              <span class="text-[#ab59f8]">Metaverse</span>
+            </h2>
+            <p class="text-2xl text-[#240046] welcome-content">
+              AoD is a unique and immersive blockchain based shared human
+              experience NFT game connecting your real world to the metaverse.
+              Our meta-economy is run on the BINANCE SMART CHAIN using Arkonia
+              ($AOD) tokens which can be used for real world transaction
+            </p>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
     <div
-      class="bg-blue-600 text-white bg-[url('/assets/images/last_skies.png')] bg-no-repeat bg-cover pb-5 3xl:h-[100rem] 2xl:h-[80rem] xl:h-[82rem] lg:h-[68rem] md:h-[60rem] sm:h-[68rem] relative z-0 head"
+      class="bg-blue-600 text-white bg-[url('/assets/images/last_skies.png')] bg-no-repeat bg-cover pb-5 5xl:h-[200rem] 4xl:h-[200rem] 3xl:h-[100rem] 2xl:h-[80rem] xl:h-[82rem] lg:h-[68rem] md:h-[60rem] sm:h-[68rem] relative z-0 head"
     >
-      <div class="flex flex-row px-10 py-10 justify-between z-50" style="z-index:99;">
+      <div class="flex flex-row px-10 py-10 justify-between z-50 w-full h-auto" style="z-index:9999;">
         <div>
           <img
             class="cursor-pointer"
@@ -84,7 +160,8 @@
         src="/assets/images/mountains.png"
         data-type="parallax"
         data-depth="0.10"
-        class="w-full absolute block
+        id="mountain"
+        class="w-full absolute block 
         2xl:bottom-0
         xl:bottom-10 
         lg:bottom-0 
