@@ -667,6 +667,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 2rem;
 }
 
+.mt-4 {
+  margin-top: 1rem;
+}
+
 .-mt-40 {
   margin-top: -10rem;
 }
@@ -677,10 +681,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mt-20 {
   margin-top: 5rem;
-}
-
-.mt-4 {
-  margin-top: 1rem;
 }
 
 .-mt-64 {
@@ -1625,6 +1625,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     height: 68rem;
   }
 
+  .sm\:h-\[80rem\] {
+    height: 80rem;
+  }
+
   .sm\:scale-100 {
     --tw-scale-x: 1;
     --tw-scale-y: 1;
@@ -1724,6 +1728,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:h-\[40rem\] {
     height: 40rem;
+  }
+
+  .md\:h-\[80rem\] {
+    height: 80rem;
+  }
+
+  .md\:h-\[70rem\] {
+    height: 70rem;
   }
 
   .md\:w-\[40rem\] {
@@ -1878,14 +1890,14 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding: 2.5rem;
   }
 
-  .lg\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-
   .lg\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
+  }
+
+  .lg\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .lg\:text-5xl {
