@@ -3,16 +3,13 @@
 Official Site of Ark of Dreams
 
 ## Install Dependencies
+
 ```bash
-npm i
+$ npm i
 ```
 
-## Read Tutorial
-https://tailwindcss.com/docs/installation
+## Start Server
 
-## Generate Tailwindcss (Run in the background) 
-Run in the background while editing your css
-```bash
-npx tailwindcss -i ./docs/styles/input.css -o ./docs/styles/output.css --watch
-
+```
+$ npm start
 ```
