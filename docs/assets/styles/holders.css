@@ -1,0 +1,101 @@
+html, body {
+  background-color: #AFE7F1;
+  background-attachment: fixed;
+  background-image: url('../images/private-sale-bg.png');
+  background-position: center calc(100% + 300px);
+  background-repeat: no-repeat;
+  background-size: 2000px;
+  height: 100%;
+}
+
+.head nav li {
+  color: #5415EA;
+}
+
+.head nav li {
+  color: #5415EA;
+}
+
+.body {
+  height: 100%;
+}
+
+.notification {
+  border: 1px solid #222222;
+  bottom: 20px;
+  color: #FFFFFF;
+  font-size: 12px;
+  left: 20px;
+  max-width: 375px;
+  padding: 20px 30px;
+  position: fixed;
+  z-index: 10000;
+}
+
+.notification a {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+.notification::before {
+  display: inline-block;
+  font-family: "Font Awesome 5 Free"; font-weight: 900;
+  padding-right: 10px;
+}
+
+.notification.notification-error {
+  background-color: #880000;
+}
+
+.notification.notification-error::before {
+  content: "\f057";
+}
+
+.notification.notification-success {
+  background-color: #008800;
+}
+
+.notification.notification-success::before {
+  content: "\f058";
+}
+
+.foot {
+  background-color: #000000;
+  color: #FFFFFF;
+  position: relative;
+  text-align: center;
+  padding-bottom: 40px;
+  z-index: 10;
+}
+
+.foot img {
+  display: inline-block;
+  width: 300px;
+}
+
+.foot ul {
+  margin-bottom: 20px;
+}
+
+.foot h4 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.foot h5 {
+  font-size: 12px;
+}
+
+.foot h6 {
+  font-size: 12px;
+  position: absolute;
+  text-transform: uppercase;
+  top: 50px;
+  width: 100%;
+}
+
+.foot h6 span {
+  display: inline-block;
+  margin-left: 75px;
+}

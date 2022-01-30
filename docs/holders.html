@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AoD Holders</title>
+    <link type="text/css" rel="stylesheet" href="./assets/fonts/opensans/font.css" />
+    <link type="text/css" rel="stylesheet" href="./assets/fonts/fontawesome/css/all.min.css" />
+    <link type="text/css" rel="stylesheet" href="./assets/styles/theme.css" />
+    <link type="text/css" rel="stylesheet" href="./assets/styles/holders.css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="https://bucket.mlcdn.com/a/3546/3546566/images/31e38835c3aaa2482f815267359eb1c4ca897cf0.png/543cbfc1c7412f7c9ced2497d0dcd0ebe45329de.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="https://bucket.mlcdn.com/a/3546/3546566/images/31e38835c3aaa2482f815267359eb1c4ca897cf0.png/a8b1bff5ac36580089abf16c8d935acbb6f4a75b.png" />
+  </head>
+  <body>
+    <header class="head container mx-auto px-4">
+      <div class="flex flex-row mb-18">
+        <div class="basis-4/12 mt-8 cursor-pointer">
+          <a href="/">
+            <img
+              src="./assets/images/black-logo.png"
+              alt="white logo ark of dreams"
+              width="240"
+              height="50"
+            />
+          </a>
+        </div>
+        <nav class="basis-8/12 mt-8">
+          <ul class="flex flex-row justify-end navbar">
+            <li class="px-2">
+              <a href="https://facebook.com/ArkOfDreamsio" target="_blank">
+                <i class="fab fa-facebook-square fa-lg"></i>
+              </a>
+            </li>
+            <li class="px-2">
+              <a href="https://twitter.com/ArkOfDreams" target="_blank">
+                <i class="fab fa-twitter-square fa-lg"></i>
+              </a>
+            </li>
+            <li class="px-2">
+              <a href="https://instagram.com/arkofdreams" target="_blank">
+                <i class="fab fa-instagram-square fa-lg"></i>
+              </a>
+            </li>
+            <li class="px-2">
+              <a href="https://discord.gg/AOD" target="_blank">
+                <i class="fab fa-discord fa-lg"></i>
+              </a>
+            </li>
+            <li class="px-2">
+              <a href="https://bscscan.com/address/0x2D368564a298F6738049cbCDB25E689b6157dc35" target="_blank">
+                <img src="/assets/images/bsc-icon-purple.svg" width="20" style="margin-top: 2px;" />
+              </a>
+            </li>
+            <li class="px-2">
+              <a href="https://github.com/arkofdreams/" target="_blank">
+                <i class="fab fa-github fa-lg"></i>
+              </a>
+            </li>
+            <li class="px-2 cursor-pointer">
+              <a href="https://hello-51.gitbook.io/arkofdreamsio/" target="_blank">
+                White Paper
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="disconnected" class="body text-center container mx-auto px-4 mt-36">
+      <div class="text-4xl text-[#00BBF9] font-bold mb-4">
+        <span class="drop-shadow-xl">
+          $AOD Token Holders
+        </span>
+      </div>
+      <a 
+        class="px-4 py-3 rounded-lg bg-green-500 text-white font-bold border-green-700 hover:bg-green-400 cursor-pointer" 
+        data-do="connect" 
+        data-on="click"
+        href="javascript:void(0)"
+      >Connect Your Wallet</a>
+    </main>
+    <main id="connected" class="hidden body container mx-auto px-4">
+      <div class="text-center text-4xl text-[#00BBF9] font-bold">
+        <span class="drop-shadow-xl">
+          $AOD Token Holders
+        </span>
+      </div>
+
+      <section class="mt-4 mx-auto p-4 w-full max-w-lg rounded-lg drop-shadow-lg bg-white bg-opacity-80">
+        <header class="flex items-center">
+          <div class="text-left">
+            <select data-do="plan" data-on="change">
+              <option value="">Choose a plan</option>
+              <option value="private">Private Sale</option>
+              <option value="presale">Presale Sale</option>
+              <option value="arkonians">Arkonians</option>
+            </select>
+          </div>
+          <div class="text-right flex-grow">
+            <span id="wallet-address"></span>
+            <a 
+              class="inline-block ml-2 px-2 py-1 rounded-lg bg-green-500 text-white border-green-700 hover:bg-green-400 cursor-pointer" 
+              data-do="disconnect" 
+              data-on="click"
+              href="javascript:void(0)"
+            >Disconnect</a>
+          </div>
+        </header>
+        <section class="mt-4">
+          <div class="noplan">
+            <p class="text-center text-xl py-8">Please Choose a Plan</p>
+          </div>
+          <div class="plan hidden">
+            <h2 class="font-bold text-uppercase">Your $AOD</h2>
+            <div class="relative my-2 w-full h-5 bg-gray-200 rounded-full">
+              <div class="total-releasable-percent absolute h-5 bg-yellow-500 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-l-full"></div>
+              <div class="total-released-percent absolute h-5 bg-green-500 text-xs font-medium text-yellow-100 text-center p-0.5 leading-none rounded-l-full"></div>
+            </div>
+            <div class="flex">
+              <em class="block flex-grow">Claimed <span class="total-released-value"></span></em>
+              <em class="block flex-grow text-right">Total <span class="total-vesting-value"></span></em>
+            </div>
+            <div class="flex mt-4 py-2 border-t border-solid border-gray-300">
+              <div class="w-1/2 text-sm">
+                <strong>How much is your total vested $AOD?</strong>
+              </div>
+              <div class="total-vesting-value pl-2 text-sm"></div>
+            </div>
+            <div class="flex mt-4 py-2 border-t border-solid border-gray-300">
+              <div class="w-1/2 text-sm">
+                <strong>When can you start claiming $AOD?</strong>
+              </div>
+              <div class="unlock-date-value pl-2 text-sm">
+                Waiting on AoD to trigger.
+              </div>
+            </div>
+            <div class="flex py-2 border-t border-solid border-gray-300">
+              <div class="w-1/2 text-sm">
+                <strong>How much $AOD can you claim right now?</strong>
+              </div>
+              <div class="pl-2 text-sm">
+                <span class="total-releasable-value"></span>
+                <a 
+                  class="hidden ml-2 px-2 py-1 rounded-lg bg-green-500 text-white border-green-700 hover:bg-green-400 cursor-pointer" 
+                  data-do="disconnect" 
+                  data-on="click"
+                  href="javascript:void(0)"
+                  id="release"
+                >Claim Now</a>
+              </div>
+            </div>
+            <div class="flex py-2 border-t border-solid border-gray-300">
+              <div class="w-1/2 text-sm">
+                <strong>How much $AOD have you claimed so far?</strong>
+              </div>
+              <div class="total-released-value pl-2 text-sm"></div>
+            </div>
+            <div class="flex py-2 border-t border-solid border-gray-300">
+              <div class="w-1/2 text-sm">
+                <strong>What is the final date you can claim all of your $AOD?</strong>
+              </div>
+              <div class="vested-date-value pl-2 text-sm"></div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+    <footer class="foot">
+      <div>
+        <h6><span>Powered By</span></h6>
+        <img src="https://bucket.mlcdn.com/a/3546/3546566/images/c128667af80fe8c7e269d341fcae72650a29e977.png" />
+      </div>
+      <h4>FOLLOW US AND JOIN THE AoD COMMUNITY!</h4>
+      <ul class="flex flex-row justify-center">
+        <li class="px-2">
+          <a href="https://facebook.com/ArkOfDreamsio" target="_blank">
+            <i class="fab fa-facebook-square fa-lg"></i>
+          </a>
+        </li>
+        <li class="px-2">
+          <a href="https://twitter.com/ArkOfDreams" target="_blank">
+            <i class="fab fa-twitter-square fa-lg"></i>
+          </a>
+        </li>
+        <li class="px-2">
+          <a href="https://instagram.com/arkofdreams" target="_blank">
+            <i class="fab fa-instagram-square fa-lg"></i>
+          </a>
+        </li>
+        <li class="px-2">
+          <a href="https://discord.gg/AOD" target="_blank">
+            <i class="fab fa-discord fa-lg"></i>
+          </a>
+        </li>
+        <li class="px-2">
+          <a href="https://github.com/arkofdreams/" target="_blank">
+            <i class="fab fa-github fa-lg"></i>
+          </a>
+        </li>
+      </ul>
+      <h5>Copyright 2021 (c) Ark of Dreams</h5>
+      <h5>Innovative Impact Ventures, Inc</h5>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script type="text/javascript" src="./assets/scripts/lib/doon.js"></script>
+    <script type="text/javascript" src="./assets/scripts/lib/blockapi.js"></script>
+    <script type="text/javascript" src="./assets/scripts/_blockmetadata.js"></script>
+    <script type="text/javascript" src="./assets/scripts/holders.js"></script>
+  </body>
+</html>
