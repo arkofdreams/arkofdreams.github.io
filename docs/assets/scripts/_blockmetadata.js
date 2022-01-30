@@ -3,7 +3,7 @@ window.blockmetadata = {
   "chain_name": "Binance Smart Chain (BSC)",
   "chain_scan": "https://testnet.bscscan.com/", //testnet
   //"chain_scan": "https://bscscan.com/", //mainnet
-  "contracts": {
+  "contracts": { 
     "private": {
       "address": "0x2D368564a298F6738049cbCDB25E689b6157dc35", //testnet
       //"address": "0x2D368564a298F6738049cbCDB25E689b6157dc35", //mainnet
