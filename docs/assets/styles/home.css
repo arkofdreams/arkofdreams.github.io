@@ -159,27 +159,33 @@ box-shadow: 0px -24px 95px 54px rgba(255,255,255,0.48);
   box-sizing: border-box;
 }
 
-@media only screen and (min-width: 2880px) {
+@media only screen and (min-width: 2580px) {
   #mountain {
     margin-bottom: -10vw;
   }
 }
 
-@media only screen and (min-width: 4000px) {
+@media only screen and (min-width: 3480px) {
   #mountain {
     margin-bottom: -15vw;
   }
 }
 
-@media only screen and (min-width: 4500px) {
+@media only screen and (min-width: 4000px) {
   #mountain {
     margin-bottom: -18vw;
   }
 }
 
-@media only screen and (min-width: 5000px) {
+@media only screen and (min-width: 4500px) {
   #mountain {
     margin-bottom: -20vw;
+  }
+}
+
+@media only screen and (min-width: 5000px) {
+  #mountain {
+    margin-bottom: -25vw;
   }
 }
 
