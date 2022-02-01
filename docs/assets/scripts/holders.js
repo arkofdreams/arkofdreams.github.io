@@ -28,6 +28,8 @@
       return
     }
 
+    state.contract = state.contract
+
     document.getElementsByClassName('plan')[0].classList.remove('hidden')
     document.getElementsByClassName('noplan')[0].classList.add('hidden')
 
@@ -113,6 +115,13 @@
       account: state.account, 
       contract: state[e.originalEvent.target.value]
     })
+  })
+  window.addEventListener('claim-click', async(e) => {
+    if (!state.contract) {
+      return blockapi.notify('error', 'No contract selected')
+    }
+    const tx = await blockapi.write(state.contract, state.account, 'release')
+    blockapi.notify('success', `Funds are on the way! <a href="https://bscscan.com/tx/${tx}">View on Binance</a>`)
   })
 })()
 
