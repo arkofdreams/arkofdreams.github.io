@@ -1181,6 +1181,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
+.border-\[\#00BBF9\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 187 249 / var(--tw-border-opacity));
+}
+
 .bg-green-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(34 197 94 / var(--tw-bg-opacity));
