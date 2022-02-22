@@ -19,7 +19,32 @@
     />
   </head>
   <body>
-    <div class="container mx-auto leading-relaxed text-xl">
+    <div class="container mx-auto p-10 xl:block 2xl:block 3xl:block sm:hidden md:hidden lg:hidden">
+      <div class="flex flex-row justify-between">
+        <div><img src="assets/images/aod-logo-horz-black.png" alt="logo" class="w-72" /></div>
+        <div>
+          <ul class="flex flex-row justify-around space-x-6 text-2xl underline">
+            <li class="cursor-pointer"><a href="/mystery-chest.html">Mystery Chest</a></li>
+            <li class="cursor-pointer">
+              <a href="https://hello-51.gitbook.io/arkofdreamsio/" target="_blank"> White Paper </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container mx-auto p-10 xl:hidden 2xl:hidden 3xl:hidden sm:block md:block lg:block">
+      <div class="flex flex-row justify-between">
+        <div><a href="/"><img src="assets/images/aod-logo-horz-black.png" alt="logo" class="w-72" /></a></div>
+        <div class="text-6xl" id="bar-menu"><i class="fas fa-bars"></i></div>
+      </div>
+    </div>
+    <ul id="bar-list" class="flex flex-col py-10 text-4xl space-y-8 text-center justify-center align-middle w-full absolute backdrop-blur-xl underline hidden">
+      <li class="cursor-pointer"><a href="/mystery-chest.html">Mystery Chest</a></li>
+      <li class="cursor-pointer">
+        <a href="https://hello-51.gitbook.io/arkofdreamsio/" target="_blank"> White Paper </a>
+      </li>
+    </ul>
+    <div class="container mx-auto leading-relaxed text-xl px-10">
       <div class="basis-10/12">
         <article class="w-full">
           <h1 class="pt-10 text-4xl font-bold">TERMS OF USE AND PRIVACY POLICY</h1>
@@ -318,5 +343,6 @@
         </article>
       </div>
     </div>
+    <script type="text/javascript" src="/assets/scripts/mobile-menu.js"></script>
   </body>
 </html>
