@@ -31,10 +31,10 @@
   const teamBlock = document.getElementById("team-list")
   teamBlock.innerHTML = teams.map((team) => {
     return `
-                <div class="px-20 py-6">
-                  <img src="${team.img}" alt="${team.name}" class="rounded-full border-2" />
+                <div class="w-1/4 justify-center mt-10">
+                  <img src="${team.img}" alt="${team.name}" class="rounded-full object-cover w-64 h-64 border-2 mx-auto" />
                   <h1 class="text-xl font-bold my-2">${team.name}</h1>
-                  <h1 class="text-xl my-2">${team.title}</h1>
+                  <p class="text-xl my-2 break-all">${team.title}</p>
                   <p class="space-x-4">
                     <span class="fa-brands fa-twitter fa-lg"></span>
                     <span class="fa-brands fa-linkedin fa-lg"></span>
