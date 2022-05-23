@@ -1,0 +1,237 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+body{
+    font-family: 'Poppins', sans-serif;
+}
+section{
+    padding: 100px 0;
+}
+/* Navbar */
+#header{
+    padding: 10px 0;
+    /* box-shadow: 6px 2px 5px 10px rgb(54, 54, 54); */
+}
+.white-paper{
+    border-radius: 30px;
+    color: #000;
+    margin-left: 20px;
+    border: 1px solid #000;
+}
+.white-paper:hover{
+    background-color: rgb(175, 175, 175);
+}
+
+/* Banner */
+#banner-section{
+    background: linear-gradient(rgb(255, 255, 255),rgba(255, 255, 255, 0.39),rgba(255, 255, 255, 0.336),rgb(255, 255, 255)), url(img/banner.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: auto;
+}
+.banner-title{
+    margin-bottom: 230px;
+}
+.scroll-inner p{
+    font-size: 11px;
+}
+
+/* Explore services */
+.explore-services{
+    margin-top: 50px;
+}
+.explore-img{
+    width: 100%;
+    height: 350px;
+}
+.explore-des{
+    font-size: 11px;
+}
+
+/* Join section */
+#join-section{
+    background: linear-gradient(rgb(255, 255, 255),rgba(255, 255, 255, 0.281),rgb(255, 255, 255),rgba(255, 255, 255, 0.308),rgba(255, 255, 255, 0.616),rgba(255, 255, 255, 0.63),rgba(255, 255, 255, 0.644),rgb(255, 255, 255)), url(img/join-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: auto;
+}
+
+/* Roadmap */
+.benefits{
+    background: linear-gradient(rgba(255, 253, 253, 0.8),rgba(255, 255, 255, 0.8)), url(img/benefit.jpg);
+    height: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 80px;
+}
+
+/* partner */
+.partner-item{
+    background-color: #E0E0E0;
+    color: #555;
+}
+
+/* Team */
+#adventure-section{
+    background: linear-gradient(rgba(255, 255, 255, 0.973),rgba(255, 255, 255, 0.13),rgb(255, 255, 255)), url(img/adventure.jpg);
+}
+
+/* footer */
+#footer-section{
+    margin-top: 100px;
+}
+.links a{
+    display: inline-block;
+    margin: 0 10px;
+}
+.social-icons a{
+    display: inline-block;
+    margin: 0 12px;
+}
+.news-input .f-input{
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 3px 10px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.news-input .f-btn{
+    background-color: #9CA3AF;
+    color: #fff;
+    border: 1px solid #999;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/*RESPONSIVE NAVBAR MENU STARTS*/
+
+   /* Responsive design--------------------------------------------- */
+   /* APPLYING MEDIA QUERIES */
+   @media (max-width: 640px){
+       /* <!-- Banner --> */
+       .banner-title{
+           font-size: 24px;
+       }
+       .banner-text{
+           width: 75%;
+       }
+    #banner-section{
+        margin-top: 100px;
+    }
+    /* footer */
+    .links{
+        margin: 30px 0;
+    }
+    .links a{
+        display: block;
+    }
+    .bottom-footer{
+        text-align: center;
+    }
+}
+   @media (max-width: 768px) {
+    /* Banner */
+   #banner-section{
+    margin-top: 100px;
+}
+/* footer */
+.links{
+ margin: 30px 0;
+}
+.links a{
+ display: block;
+}
+.bottom-footer{
+ text-align: center;
+}
+}
+
+/* ------------------ */
+/* menu */
+nav{
+    height: 80px;
+    width: 100%;
+  }
+  label.logo{
+    color: rgb(0, 0, 0);
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+  }
+  nav ul{
+    float: right;
+    margin-right: 20px;
+  }
+  nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+    
+  }
+  nav ul li a{
+    color: rgb(82, 82, 82);
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+  a.active,a:hover{
+    background: #1b9bff;
+    transition: .5s;
+    color: #fff;
+  }
+  .checkbtn{
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+  }
+  #check{
+    display: none;
+  }
+  @media (max-width: 952px){
+    label.logo{
+      font-size: 30px;
+      padding-left: 50px;
+    }
+    nav ul li a{
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 1024px){
+    .checkbtn{
+      display: block;
+    }
+    ul{
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background: #c5c5c5;
+      top: 80px;
+      left: -100%;
+      text-align: center;
+      transition: all .5s;
+    }
+    nav ul li{
+      display: block;
+      margin: 50px 0;
+      line-height: 30px;
+    }
+    nav ul li a{
+      font-size: 20px;
+    }
+    a:hover,a.active{
+      background: none;
+      color: #0082e6;
+    }
+    #check:checked ~ ul{
+      left: 0;
+    }
+  }
