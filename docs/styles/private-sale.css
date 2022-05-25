@@ -1,0 +1,206 @@
+.connected {
+  display: none;
+}
+
+.section-1 {
+  background-color: #000000;
+  color: #FFFFFF;
+  padding: 40px 0 100px;
+  position: relative;
+  text-align: center;
+}
+
+.section-1::after {
+  background-color: #000000;
+  border-radius: 0 0 50% 50%;
+  box-shadow: 0 10px 60px #000000;
+  content: " ";
+  display: block;
+  height: 60px;
+  bottom: -30px;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.section-1 h1 {
+  text-transform: uppercase;
+}
+
+.section-1 p {
+  font-size: 15px;
+  padding: 0;
+}
+
+.section-1 .btn {
+  margin-top: 40px;
+}
+
+.section-1 .note {
+  color: #FFFFFF;
+  display: block;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.section-2 {
+  background-attachment: fixed;
+  background-color: #015e94;
+  background-image: url(/images/bg-3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section-2 .container {
+  padding: 100px 20px;
+}
+
+.steps .step {
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(24px);
+  border: 4px solid rgb(84, 21, 234);
+  border-radius: 12px;
+  margin: 0 20px 20px;
+  padding: 20px;
+}
+
+.steps .step .label {
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.steps .step h2 {
+  color: #FFFFFF;
+  margin-top: 0;
+}
+
+.steps .step p {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.box-secondary {
+  border: 1px solid rgb(247, 37, 133);
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.box-secondary h3 {
+  color: rgb(247, 37, 133);
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.form {
+  align-items: center;
+  display: flex;
+}
+
+.form .btn {
+  padding: 12px 24px;
+}
+
+.form .calculations {
+  color: #FFFFFF;
+  display: block;
+  padding: 0 10px;
+  white-space: nowrap;
+}
+
+.foot::before {
+  box-shadow: 0 -10px 60px #000000;
+}
+
+.alert-outline.alert-primary {
+  color: #FFFFFF;
+  font-size: 13px;
+  margin-top: 20px;
+}
+
+.alert-outline.alert-error,
+.alert-outline.alert-success {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.progress {
+  margin: 20px 0;
+}
+
+.progress .meter {
+  background-color: #CCCCCC;
+  border-radius: 20px;
+  height: 25px;
+}
+
+.progress .meter div {
+  background-color: rgb(84, 21, 234);
+  border-radius: 20px;
+  height: 100%;
+}
+
+.progress .labels {
+  color: #FFFFFF;
+  display: flex;
+  font-size: 11px;
+  padding: 5px 10px;
+}
+
+.progress .labels .right {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.stats {
+  display: flex;
+}
+
+.stats .stat {
+  border: 1px solid rgb(84, 21, 234);
+  color: #FFFFFF;
+  padding: 20px;
+  text-align: center;
+  width: calc(50% - 40px);
+}
+
+.stats .stat:first-child {
+  border-right: 0;
+}
+
+.stats .stat h3 {
+  font-size: 11px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.stats .stat span {
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.questions {
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(24px);
+  border: 4px solid rgb(84, 21, 234);
+  border-radius: 12px;
+  margin: 0 20px 20px;
+  padding: 20px;
+}
+
+.questions h2 {
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.questions h5 {
+  color: #FFFFFF;
+  font-size: 18px;
+  margin: 0;
+}
+
+.questions p {
+  font-size: 15px;
+  font-weight: 500;
+}

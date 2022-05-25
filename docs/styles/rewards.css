@@ -1,0 +1,207 @@
+.body {
+  background-color: #FFFFFF;
+}
+
+.connected {
+  display: none;
+}
+
+.section-1 {
+  background-color: #00a2ff;
+  background-image: url(/images/bg-10.png);
+  background-position: 0 calc(100% + 200px);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: 0 0 20% 20%;
+  box-shadow: 0 10px 60px #000000;
+  color: #FFFFFF;
+  overflow: hidden;
+  padding: 40px 0 100px;
+  position: relative;
+  text-align: center;
+}
+
+.section-1 h1 {
+  text-transform: uppercase;
+}
+
+.section-1 p {
+  font-size: 15px;
+  padding: 0;
+}
+
+.section-1 .btn {
+  margin-top: 40px;
+}
+
+.section-1 .note {
+  color: #000000;
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-shadow: 0 0 3px #FFFFFF;
+}
+
+.section-2 {
+  background-color: #FFFFFF;
+  padding: 100px 0;
+}
+
+.section-2 .items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1050px;
+  margin: auto;
+  width: 100%;
+}
+
+.section-2 .item {
+  border: 1px solid #EDEDED;
+  cursor: pointer;
+  margin: 10px;
+  max-width: 220px;
+  padding: 10px;
+  text-align: center;
+}
+
+.section-2 .item .preview img {
+  width: 100%;
+}
+
+.section-2 .item .info {
+  padding: 10px;
+}
+
+.section-2 .item .info h3 {
+  font-size: 13px;
+  margin: 0;
+}
+
+.section-2 .item .info p {
+  padding: 0;
+}
+
+.section-2 .item .info .supply {
+  font-size: 13px;
+  margin: 10px 0;
+}
+
+.section-2 .item .info .price span {
+  display: inline-block;
+  font-size: 15px;
+  margin: 0 10px;
+}
+
+.section-2 .item .info .hide {
+  display: none;
+}
+
+.modal {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.65);
+  bottom: 0;
+  display: flex;
+  left: 0;
+  justify-content: center;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.modal .overlay {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  left: 20px;
+  margin: 0 auto;
+  max-width: 600px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.modal .overlay .modal-head {
+  border-bottom: 1px solid #CCCCCC;
+  padding: 10px 20px 5px;
+  text-align: right;
+}
+
+.modal .overlay .modal-head a {
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.modal .overlay .modal-body {
+  flex-grow: 1;
+  overflow-x: scroll;
+  padding: 20px;
+}
+
+.modal .overlay .modal-body p {
+  font-size: 14px;
+}
+
+.modal .overlay .modal-body a {
+  font-size: 12px;
+}
+
+.modal .overlay .modal-body .preview {
+  border-radius: 20px;
+  margin: auto;
+  overflow: hidden;
+  max-width: 300px;
+}
+
+.modal .overlay .modal-body .preview img {
+  width: 100%;
+}
+
+.modal .overlay .modal-body .info {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.modal .overlay .modal-foot {
+  border-top: 1px solid #CCCCCC;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.modal .overlay .modal-foot .supply {
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+
+.modal .overlay .modal-foot .btn {
+  border-radius: 0;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.modal .overlay .modal-foot .btn.hide {
+  display: none;
+}
+
+.modal .overlay .modal-foot .btn.disabled {
+  background-color: #FFFFFF;
+  border: 1px solid #9456FF;
+  color: #9456FF;
+}
+
+@media(max-width: 767px) {
+  .section-1 {
+    background-position: 0 calc(100% + 50px);
+    border-radius: 0 0 15% 15%;
+  }
+  .section-2 .item {
+    margin: 5px;
+    max-width: 148px;
+  }
+}

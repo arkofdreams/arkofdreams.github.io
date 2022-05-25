@@ -1,0 +1,101 @@
+.connected {
+  display: none;
+}
+
+.section-1 {
+  background-color: #000000;
+  color: #FFFFFF;
+  padding: 40px 0 100px;
+  position: relative;
+  text-align: center;
+}
+
+.section-1::after {
+  background-color: #000000;
+  border-radius: 0 0 50% 50%;
+  box-shadow: 0 10px 60px #000000;
+  content: " ";
+  display: block;
+  height: 60px;
+  bottom: -30px;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.section-1 h1 {
+  text-transform: uppercase;
+}
+
+.section-1 p {
+  font-size: 15px;
+  padding: 0;
+}
+
+.section-1 .btn {
+  margin-top: 40px;
+}
+
+.section-1 .note {
+  color: #FFFFFF;
+  display: block;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.section-2 {
+  background-image: url(/images/bg-2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 100px 0;
+}
+
+.section-2 .box {
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(24px);
+  border: 4px solid rgb(84, 21, 234);
+  border-radius: 12px;
+  margin: 0 20px 20px;
+  padding: 20px;
+}
+
+.section-2 .progress {
+  margin: 20px 0;
+}
+
+.section-2 .progress .meter {
+  background-color: #CCCCCC;
+  border-radius: 20px;
+  height: 25px;
+}
+
+.section-2 .progress .meter div {
+  background-color: rgb(84, 21, 234);
+  border-radius: 20px;
+  height: 100%;
+}
+
+.section-2 .progress .labels {
+  display: flex;
+  font-size: 11px;
+  padding: 5px 10px;
+}
+
+.section-2 .progress .labels .right {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.section-2 .btn {
+  display: none;
+  margin-top: 10px;
+}
+
+.section-2 .questions > div {
+  margin-bottom: 60px;
+}
+
+.foot::before {
+  box-shadow: 0 -10px 60px #000000;
+}
