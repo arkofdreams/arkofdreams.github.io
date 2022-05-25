@@ -6,6 +6,10 @@ html, body {
   scroll-behavior: smooth; 
 }
 
+.connected {
+  display: none;
+}
+
 .google-frame {
   display: none;
 }
