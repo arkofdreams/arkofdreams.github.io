@@ -8,7 +8,11 @@
   const vesting = network.contract('vesting')
 
   //chest variables
-  const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
+  const months = [
+    'JAN', 'FEB', 'MAR', 'APR', 
+    'MAY', 'JUN', 'JUL', 'AUG', 
+    'SEP', 'OCT', 'NOV', 'DEC'
+  ]
   const amountOfAODToPurchase = document.getElementById('amount')
   const amountOfTotalMaticItCosts = document.getElementById('conversion') 
 

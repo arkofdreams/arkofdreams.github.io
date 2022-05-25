@@ -1,6 +1,9 @@
 (async() => {
   //sets up the MM SDK
   MetaMaskSDK.setup(blocknet)
+
+  //------------------------------------------------------------------//
+  // Variables
   
   let populated = false
   const state = { connected: false }
@@ -13,15 +16,26 @@
     modal: document.getElementById('tpl-modal').innerHTML
   }
 
+  //------------------------------------------------------------------//
+  // Functions
+
   const connected = function(newstate, session) {
+    //update state
     Object.assign(state, newstate, { connected: true })
-    document.querySelectorAll('.connected').forEach(el => (el.style.display = 'block'))
-    document.querySelectorAll('.disconnected').forEach(el => (el.style.display = 'none'))
+    //update HTML state
+    document.querySelectorAll('.connected').forEach(
+      el => (el.style.display = 'block')
+    )
+    document.querySelectorAll('.disconnected').forEach(
+      el => (el.style.display = 'none')
+    )
+    //if not connected via session
     if (!session) {
       notify('success', 'Wallet connected')
     }
-
+    //if url has hash
     if (window.location.hash) {
+      //open the modal
       const trigger = document.createElement('div')
       trigger.setAttribute('data-do', 'modal-open')
       trigger.setAttribute('data-id', window.location.hash.substring(1))
@@ -29,13 +43,16 @@
       window.doon(trigger)
       trigger.click()
     }
-
+    //populate the store
     populate()
   }
 
   const populate = async function() {
+    //if it's already populated, do nothing
     if (populated) return
+    //reset the items html
     items.innerHTML = ''
+    //now start populating it
     for (let i = 0; true; i++) {
       try {
         //get metadata
@@ -43,7 +60,7 @@
         const json = await response.json()
         //get info
         const info = await blockapi.read(store, 'tokenInfo', i + 1)
-
+        //render item template with actual values
         const item = toElement(template.item
           .replace('{IMAGE}', `/images/rewards/${i + 1}-preview.jpg`)
           .replace('{ID}', i + 1)
@@ -57,14 +74,17 @@
             : (info.supply > 0 ? `${info.supply} sold`: '')
           )
         )
-        populated = true
-
+        //append the item to the items container
         items.appendChild(item)
+        //register html events
         window.doon(item)
       } catch(e) {
         break
       }
     }
+
+    //flag as populated
+    populated = true
   }
 
   const disconnected = async function(newstate) {
@@ -73,8 +93,13 @@
     delete state.account
     //if error, report it
     if (error) notify('error', error.message)
-    document.querySelectorAll('.connected').forEach(el => (el.style.display = 'none'))
-    document.querySelectorAll('.disconnected').forEach(el => (el.style.display = 'block'))
+    //update html state
+    document.querySelectorAll('.connected').forEach(
+      el => (el.style.display = 'none')
+    )
+    document.querySelectorAll('.disconnected').forEach(
+      el => (el.style.display = 'block')
+    )
   }
 
   const toElement = function(html) {
@@ -83,54 +108,68 @@
     return template.content.firstChild;
   }
 
+  //------------------------------------------------------------------//
+  // Events
+
   window.addEventListener('connect-click', async(e) => {
     if (!store.address) {
-      return notify('error', 'Store is offline at the moment. Please check back later.')
+      return notify(
+        'error', 
+        'Store is offline at the moment. Please check back later.'
+      )
     }
     network.connectCB(connected, disconnected)
   })
 
   window.addEventListener('buy-matic-click', async function buyMatic(e) {
+    //if no account
     if (!state.account) {
+      //connect the wallet and try again
       return network.connectCB((newstate) => {
         connected(newstate)
         buyMatic(e)
       }, disconnected)
     }
+    //get item info
     const id = parseInt(e.for.getAttribute('data-id'))
     const max = parseInt(e.for.getAttribute('data-max'))
     const price = e.for.getAttribute('data-price')
     const supply = parseInt(e.for.getAttribute('data-supply'))
 
+    //validation
     if (price == 0) {
       return notify('error', 'Item is unavailable right now')
     } else if (max > 0 && max <= supply) {
       return notify('error', 'Item is sold out')
     }
 
+    //update button state
     const original = e.for.innerHTML
     e.for.innerHTML = 'Minting...'
     e.for.classList.add('disabled')
-
+    //report
     notify('info', 'Minting item...')
-    try {
+    try {//to buy from the smart contract
       await (
         store
           .write(state.account, price, 6)
           .buy(state.account, id, 1)
       )
     } catch(error) {
-      notify('error', error.message)
+      //update button state
       e.for.innerHTML = original
       e.for.classList.remove('disabled')
-      return false
+      //report
+      return notify('error', error.message)
     }
 
+    //update button state
     e.for.innerHTML = original
     e.for.classList.remove('disabled')
+    //report
     notify(
       'success', 
-      `Minting is now complete. You can view your item on <a href="${blockmetadata.chain_marketplace}/${store._address}/${id}" target="_blank">
+      `Minting is now complete. You can view your item on <a href="${network.config.chain_marketplace}/${store._address}/${id}" target="_blank">
         opensea.io
       </a>.`,
       1000000
@@ -138,53 +177,57 @@
   })
 
   window.addEventListener('buy-token-click', async function buyToken(e) {
+    //if no account
     if (!state.account) {
+      //connect the wallet and try again
       return network.connectCB((newstate) => {
         connected(newstate)
         buyToken(e)
       }, disconnected)
     }
-
+     //get item info
     const id = parseInt(e.for.getAttribute('data-id'))
     const max = parseInt(e.for.getAttribute('data-max'))
     const price = e.for.getAttribute('data-price')
     const supply = parseInt(e.for.getAttribute('data-supply'))
-
+    //validate
     if (price == 0) {
       return notify('error', 'Item is unavailable right now')
     } else if (max > 0 && max <= supply) {
       return notify('error', 'Item is sold out')
     }
-
-    //check gratis balance
+    //check balance
     const balance = await token.read().balanceOf(state.account)
     if ((balance - price) < 0) {
       return notify('error', 'Not enough Arkon in your wallet')
     }
-
+    //update button state
     const original = e.for.innerHTML
     e.for.innerHTML = 'Minting...'
     e.for.classList.add('disabled')
-
+    //report
     notify('info', 'Minting item...')
-    try {
+    try {//to buy from the smart contract
       await (
         store
           .write(state.account, false, 6)
           .support(state.account, id, 1)
       )
     } catch(error) {
-      notify('error', error.message)
+      //update button state
       e.for.innerHTML = original
       e.for.classList.remove('disabled')
-      return false
+      //report
+      return notify('error', error.message)
     }
 
+    //update button state
     e.for.innerHTML = original
     e.for.classList.remove('disabled')
+    //report
     notify(
       'success', 
-      `Minting is now complete. You can view your item on <a href="${blockmetadata.chain_marketplace}/${store._address}/${id}" target="_blank">
+      `Minting is now complete. You can view your item on <a href="${network.config.chain_marketplace}/${store._address}/${id}" target="_blank">
         opensea.io
       </a>.`,
       1000000
@@ -192,16 +235,14 @@
   })
 
   window.addEventListener('modal-open-click', async (e) => {
+    //get id
     const id = parseInt(e.for.getAttribute('data-id'))
     //get metadata
     const response = await fetch(`/data/gifts/${id}.json`)
     const json = await response.json()
     //get info
     const info = await blockapi.read(store, 'tokenInfo', id)
-
-    //if it's a song
-    if ('song' in json && json.animation_url) {}
-
+    //render modal template with actual values
     const modal = toElement(template.modal
       .replace('{IMAGE}', `/images/rewards/${id}-preview.jpg`)
       .replace('{ID}', id)
@@ -228,8 +269,9 @@
       .replace('{SUPPLY}', info.supply)
       .replace('{SUPPLY}', info.supply)
     )
-
+    //append modal to the body
     document.body.appendChild(modal)
+    //register html events
     window.doon(modal)
   })
 
@@ -243,6 +285,9 @@
     const modal = document.querySelector(e.for.getAttribute('data-target'))
     modal.parentNode.removeChild(modal)
   })
+
+  //------------------------------------------------------------------//
+  // Initialize
 
   window.doon('body')
   if (store.address) {

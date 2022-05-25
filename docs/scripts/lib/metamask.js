@@ -27,6 +27,13 @@
       return this;
     }
 
+    /**
+     * Returns Big Number instance
+     * 
+     * @param {String|Number} num
+     *  
+     * @returns BigNumber 
+     */
     static BigNumber(num) {
       const BN = this.web3().utils.BN
       return new BN(num)
@@ -375,6 +382,15 @@
       return this.contracts[name];
     }
 
+    /**
+     * Listens to various wallet state changes and determines if it is 
+     * connected or disconnected
+     * 
+     * @param {Function} connected 
+     * @param {Function} disconnected 
+     * 
+     * @returns {Network} 
+     */
     listenToWallet(connected, disconnected) {
       //if not installed
       if (!MetaMask.installed() 
@@ -420,6 +436,14 @@
       return this
     }
 
+    /**
+     * Captures the current wallets state and determines if the wallet 
+     * is connected or not
+     * 
+     * @param {Function} connected 
+     * @param {Function} disconnected 
+     * @param {Boolean} listen 
+     */
     async startSession(connected, disconnected, listen) {
       if (listen) {
         this.listenToWallet(connected, disconnected);

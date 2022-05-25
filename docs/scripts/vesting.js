@@ -2,23 +2,41 @@
   //sets up the MM SDK
   MetaMaskSDK.setup(blocknet)
 
+  //------------------------------------------------------------------//
+  // Variables
+
   const state = { connected: false }
   const network = MetaMaskSDK.network('polygon')
   const vesting = network.contract('vesting')
   const token = network.contract('token')
 
-  const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
+  const months = [
+    'JAN', 'FEB', 'MAR', 'APR', 
+    'MAY', 'JUN', 'JUL', 'AUG', 
+    'SEP', 'OCT', 'NOV', 'DEC'
+  ]
+
+  //------------------------------------------------------------------//
+  // Functions
 
   const connected = async function(newstate) {
-    //check vesting
+    //check if vesting
     const info = await (vesting.read().vesting(newstate.account))
     if (info.total == 0) {
-      return disconnected({ connected: false }, new Error('Address is not vested'))
+      return disconnected(
+        { connected: false }, 
+        new Error('Address is not vested')
+      )
     }
     //update state
     Object.assign(state, newstate)
-    document.querySelectorAll('.connected').forEach(el => (el.style.display = 'block'))
-    document.querySelectorAll('.disconnected').forEach(el => (el.style.display = 'none'))
+    //update html state
+    document.querySelectorAll('.connected').forEach(
+      el => (el.style.display = 'block')
+    )
+    document.querySelectorAll('.disconnected').forEach(
+      el => (el.style.display = 'none')
+    )
     //update state vesting
     const now = Math.floor(Date.now() / 1000)
     state.vesting = info
@@ -34,6 +52,8 @@
   }
 
   const populate = function() {
+    //determine all the final formatted values
+    const progress = `${(state.totalVestedAmount / state.vesting.total) * 100}%`
     const vestedStartDate = new Date(state.vesting.startDate * 1000)
     const vestedEndDate = new Date(state.vesting.endDate * 1000)
     const totalVested = MetaMaskSDK.toEther(state.totalVestedAmount) < 100 
@@ -57,7 +77,8 @@
         MetaMaskSDK.toEther(state.vesting.released)
       ).toLocaleString('en')
 
-    document.getElementById('progress').style.width = `${(state.totalVestedAmount / state.vesting.total) * 100}%`
+    //update HTML values
+    document.getElementById('progress').style.width = progress
     document.getElementById('progress-total-vested').innerHTML = totalVested
     document.getElementById('progress-total-vesting').innerHTML = totalVesting
     document.getElementById('total-vesting').innerHTML = totalVesting
@@ -83,23 +104,31 @@
   const disconnected = function(newstate, error) {
     //update state
     Object.assign(state, newstate)
-    //if error, report it
-    if (error) notify('error', error.message)
-    document.querySelectorAll('.connected').forEach(el => (el.style.display = 'none'))
-    document.querySelectorAll('.disconnected').forEach(el => (el.style.display = 'block'))
-    //delete states
     delete state.account
     delete state.paused
     delete state.vesting
     delete state.totalReleasableAmount
     delete state.totalVestedAmount
-    state.connected = false
-
+    //if error, report it
+    if (error) notify('error', error.message)
+    //update HTML state
+    document.querySelectorAll('.connected').forEach(
+      el => (el.style.display = 'none')
+    )
+    document.querySelectorAll('.disconnected').forEach(el => (
+      el.style.display = 'block')
+    )
   }
+
+  //------------------------------------------------------------------//
+  // Events
 
   window.addEventListener('connect-click', async(e) => {
     if (!vesting.address) {
-      return notify('error', 'Vesting information is not available right now. Please check back later.')
+      return notify(
+        'error', 
+        'Vesting information is not available right now. Please check back later.'
+      )
     }
     network.connectCB(connected, disconnected)
   })
@@ -119,6 +148,9 @@
   window.addEventListener('watch-click', async(e) => {
     await token.addToWallet()
   })
+
+  //------------------------------------------------------------------//
+  // Initialize
 
   window.doon(document.body)
 })()
