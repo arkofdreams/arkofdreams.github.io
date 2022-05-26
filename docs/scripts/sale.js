@@ -105,8 +105,8 @@
         sale.gas(
           state.account,
           MetaMaskSDK
-            .BigNumber(state.unitPrice)
-            .mul(MetaMaskSDK.BigNumber(amountOfAODToPurchase.value))
+            .toBigNumber(state.unitPrice)
+            .mul(MetaMaskSDK.toBigNumber(amountOfAODToPurchase.value))
             .toString()
         ).buy(state.account, MetaMaskSDK.toWei(amountOfAODToPurchase.value))
       )
@@ -128,8 +128,8 @@
         sale.write(
           state.account,
           MetaMaskSDK
-            .BigNumber(state.unitPrice)
-            .mul(MetaMaskSDK.BigNumber(amountOfAODToPurchase.value))
+            .toBigNumber(state.unitPrice)
+            .mul(MetaMaskSDK.toBigNumber(amountOfAODToPurchase.value))
             .toString(),
           2
         ).buy(state.account, MetaMaskSDK.toWei(amountOfAODToPurchase.value))

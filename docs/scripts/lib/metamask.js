@@ -34,7 +34,7 @@
      *  
      * @returns BigNumber 
      */
-    static BigNumber(num) {
+    static toBigNumber(num) {
       const BN = this.web3().utils.BN
       return new BN(num)
     }

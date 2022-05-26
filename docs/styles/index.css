@@ -17,8 +17,14 @@
   width: 100%;
 }
 
-.section-1 video {
-  position: relative;
+.section-1 .video {
+  align-items: center;
+  display: flex;
+  height: 54vw;
+  overflow: hidden;
+}
+
+.section-1 .video video {
   width: 100%;
 }
 
