@@ -101,4 +101,6 @@
   // Initialize
 
   window.doon(document.body)
+
+  network.startSession(connected, disconnected, true)
 })()

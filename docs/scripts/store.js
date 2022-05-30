@@ -211,7 +211,7 @@
       await (
         store
           .write(state.account, false, 6)
-          .support(state.account, id, 1)
+          .buyWithToken(token.address, state.account, id, 1)
       )
     } catch(error) {
       //update button state

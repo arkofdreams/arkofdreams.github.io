@@ -1,4 +1,6 @@
 ((window) => {
+  const providers = {};
+
   class MetaMask {
     /**
      * @param {Object} mapping of networks
@@ -45,7 +47,8 @@
      * @returns {Boolean}
      */
     static async connected() {
-      return this.installed() && (await this.getWalletAddresses()).length > 0;
+      return this.installed() 
+        && (await (this.web3().eth.getAccounts())).length > 0;
     }
 
     /**
@@ -189,12 +192,24 @@
      *
      * @returns {Web3}
      */
-    static web3() {
-      if (typeof window._web3 === 'undefined') {
-        window._web3 = new Web3(window.ethereum);
+    static web3(rpc = 'metamask') {
+      if (!providers[rpc]) {
+        if (rpc === 'metamask') {
+          providers[rpc] = new Web3(window.ethereum);
+        } else if (MetaMask.networks[rpc]) {
+          providers[rpc] = new Web3(
+            new Web3.providers.HttpProvider(
+              networks[rpc].config.chain_uri
+            )
+          );
+        } else {
+          providers[rpc] = new Web3(
+            new Web3.providers.HttpProvider(rpc)
+          );
+        }
       }
-  
-      return window._web3
+
+      return providers[rpc];
     }
   }
 
@@ -327,7 +342,7 @@
         await this.changeInWallet()
         const account = await MetaMask.getWalletAddresses(0);
         const networkId = await MetaMask.currentNetwork();
-        if (networkId == blockmetadata.chain_id) {
+        if (networkId == this.config.chain_id) {
           return account;
         }
       } catch (e) {
@@ -339,7 +354,7 @@
         await this.changeInWallet();
         const account = await MetaMask.getWalletAddresses(0);
         const networkId = await MetaMask.currentNetwork();
-        if (networkId == blockmetadata.chain_id) {
+        if (networkId == this.config.chain_id) {
           return account;
         }
       } catch (e) {
@@ -357,8 +372,8 @@
      */
     async connectCB(connected, disconnected) {
       const noop = function() {};
-      disconnected = connected || noop;
-      disconnected = connected || noop;
+      connected = connected || noop;
+      disconnected = disconnected || noop;
     
       try {
         const account = await this.connect();
@@ -448,6 +463,7 @@
       if (listen) {
         this.listenToWallet(connected, disconnected);
       }
+
       if (await this.active()) {
         const account = await MetaMask.getWalletAddresses(0);
         return connected({ connected: true, account }, true);
@@ -464,9 +480,11 @@
      * @param {Object[]} abi 
      * @param {Object} config 
      */
-    constructor(network, address, abi, config) {
+    constructor(network, address, abi, config = {}) {
       const libWeb3 = MetaMask.web3();
+      const readWeb3 = MetaMask.web3(network.config.chain_uri);
       this.resource = new libWeb3.eth.Contract(abi, address);
+      this.readResource = new readWeb3.eth.Contract(abi, address)
       this.abi = abi;
       this.config = config;
       this.network = network;
@@ -550,7 +568,7 @@
         }
 
         methods[method.name] = async function(...args) {
-          return await self.resource.methods[method.name](...args).call();
+          return await self.readResource.methods[method.name](...args).call();
         };
       }
       return methods;
@@ -674,5 +692,7 @@
     }
   }
 
+  MetaMask.Network = Network;
+  MetaMask.Contract = Contract;
   window.MetaMaskSDK = MetaMask;
 })(window)
