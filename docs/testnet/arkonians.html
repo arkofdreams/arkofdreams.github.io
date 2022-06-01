@@ -65,13 +65,81 @@
         </div>
       </section>
       <div class="connected">
-        <section class="section section-2"></section>
+        <section class="section section-2">
+          <div class="container">
+            <div class="profile-card">
+              <div class="d-flex">
+                <div class="avatar-wrapper">
+                  <img src="https://place-hold.it/100" id="avatar-image" />
+                </div>
+                <div class="avatar-details">
+                  <div id="avatar-name"></div>
+                  <div class="level-wrapper">LEVEL <span id="avatar-level"></span></div>
+                  <div id="account-class"></div>
+                  <div id="avatar-experience" class="w-100">
+                    <div class="progress-bar" id="experience-bar">
+                      <span class="progress-bar-fill" style="width: 100%;"></span>
+                      <span class="floating-label" id="experience-meter"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-10">
+                <h4>STATS</h4>
+              <div class="d-flex">
+                <div class="stats-wrapper">
+                  <div class="stats-column">
+                    <div class="progress-bar" id="hunger-bar">
+                      <span class="progress-bar-fill" style="width: 100%;"></span>
+                      <span class="floating-label">Hunger</span>
+                    </div>
+                    <div class="progress-bar" id="hygiene-bar">
+                      <span class="progress-bar-fill" style="width: 100%;"></span>
+                      <span class="floating-label">Hygiene</span>
+                    </div>
+                    <div class="progress-bar" id="energy-bar">
+                      <span class="progress-bar-fill" style="width: 100%;"></span>
+                      <span class="floating-label">Energy</span>
+                    </div>
+                  </div>
+                  <div class="stats-column">
+                    <div class="progress-bar" id="fun-bar">
+                      <span class="progress-bar-fill" style="width: 100%;"></span>
+                      <span class="floating-label">Fun</span>
+                    </div>
+                    <div class="progress-bar" id="social-bar">
+                      <span class="progress-bar-fill" style="width: 100%;"></span>
+                      <span class="floating-label">Social</span>
+                    </div>
+                    <div class="progress-bar" id="happiness-bar">
+                      <span class="progress-bar-fill" style="width: 100%;"></span>
+                      <span class="floating-label">Happiness</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class="inventory-wrapper mt-10">
+                <h4>INVENTORY</h4>
+              <table id="inventory-table">
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+              </div>
+            </div>
+          </div>
+        </section>
         <section class="section section-3">
           <div class="container">
             <h2>Redeem Arkon Crystals</h2>
             <div class="balance">
               <h4 class="label">Balance</h4>
-              <strong>0</strong>
+              <strong id="crystal-balance">0</strong>
             </div>
             <button class="btn btn-large btn-solid btn-primary" data-do="redeem" data-on="click">
               Redeem
