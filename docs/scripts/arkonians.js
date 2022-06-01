@@ -12,6 +12,7 @@
   //chest variables
   const chestProof = document.getElementById('chest-proof')
   const chestButton = document.getElementById('chest-button')
+  const apiURL = 'http://139.59.233.80:4000'
 
   //------------------------------------------------------------------//
   // Functions
@@ -19,13 +20,80 @@
   const connected = async function(newstate) {
     //update state
     Object.assign(state, newstate)
-    //toggle html state
-    document.querySelectorAll('.connected').forEach(
-      el => (el.style.display = 'block')
-    )
-    document.querySelectorAll('.disconnected').forEach(
-      el => (el.style.display = 'none')
-    )
+
+    // get user details
+    var detailsRequest = new XMLHttpRequest()
+    detailsRequest.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        // layout user details
+        var user = JSON.parse(this.responseText).results
+
+        // balance
+        document.getElementById('crystal-balance').innerText = user.crystals.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        // name
+        document.getElementById('avatar-name').innerText = user.display_name
+        // level
+        document.getElementById('avatar-level').innerText = user.level
+        // account class
+        document.getElementById('account-class').innerText = user.class ?? 'Arkonian'
+        // experience percentage
+        var percentage = (parseInt(user.experience) / user.next_level_experience) * 100
+        document.querySelector('#experience-bar .progress-bar-fill').style.width = percentage + '%'
+        // experience meter
+        document.getElementById('experience-meter').innerText = user.experience + ' / ' + user.next_level_experience
+
+        // hunger percentage
+        document.querySelector('#hunger-bar .progress-bar-fill').style.width = user.hunger + '%'
+        // hygiene percentage
+        document.querySelector('#hygiene-bar .progress-bar-fill').style.width = user.hygiene + '%'
+        // energy percentage
+        document.querySelector('#energy-bar .progress-bar-fill').style.width = user.energy + '%'
+        // fun percentage
+        document.querySelector('#fun-bar .progress-bar-fill').style.width = user.fun + '%'
+        // social percentage
+        document.querySelector('#social-bar .progress-bar-fill').style.width = user.social + '%'
+        // happiness percentage
+        document.querySelector('#happiness-bar .progress-bar-fill').style.width = user.happiness + '%'
+      }
+
+      //toggle html state
+      document.querySelectorAll('.connected').forEach(
+        el => (el.style.display = 'block')
+      )
+      document.querySelectorAll('.disconnected').forEach(
+        el => (el.style.display = 'none')
+      )
+    }
+    
+    detailsRequest.open("GET", apiURL + '/profile/details?wallet_address=' + state.account, true)
+    detailsRequest.send()
+
+    // get user inventory
+    var inventoryRequest = new XMLHttpRequest()
+    inventoryRequest.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        // layout user inventory
+        var items = JSON.parse(this.responseText).results
+
+        var table = ''
+        for (var i in items) {
+          if (items[i].item == 'crystal' || parseInt(items[i].qty) <= 0) { continue }
+          table += '<tr>'
+          table += '<td>'+items[i].item+'</td>'
+          table += '<td>'+items[i].qty+'</td>'
+          table += '</tr>'
+        }
+
+        if (table == '') {
+          document.querySelector('#inventory-table').style.display = 'none'
+        } else {
+          document.querySelector('#inventory-table tbody').innerHTML = table
+        }
+      }
+    }
+    
+    inventoryRequest.open("GET", apiURL + '/profile/inventory?wallet_address=' + state.account, true)
+    inventoryRequest.send()
   }
 
   const disconnected = function(newstate, error) {
