@@ -4,8 +4,8 @@
 
   //------------------------------------------------------------------//
   // Variables
-  
   let populated = false
+  const itemMetadataUri = 'https://gateway.pinata.cloud/ipfs/QmTkuQYw7noSPHRfPAh7VXE6kgX2qdi6PPJMUTzAXMfYbe/'
   const state = { connected: false }
   const network = MetaMaskSDK.network('polygon')
   const store = network.contract('store')
@@ -56,24 +56,26 @@
     for (let i = 0; true; i++) {
       try {
         //get metadata
-        const response = await fetch(`/data/store/${i + 1}.json`)
+        const response = await fetch(`${itemMetadataUri}${i + 1}.json`)
         const json = await response.json()
         //get info
-        const info = await blockapi.read(store, 'tokenInfo', i + 1)
+        const info = await store.read().tokenInfo(i + 1)
         //render item template with actual values
         const item = toElement(template.item
-          .replace('{IMAGE}', `/images/rewards/${i + 1}-preview.jpg`)
+          .replace('{IMAGE}', json.preview)
           .replace('{ID}', i + 1)
           .replace('{NAME}', json.name)
           .replace('{MATIC_HIDE}', info.eth > 0 ? '' : ' hide')
-          .replace('{MATIC_PRICE}', info.eth > 0 ? blockapi.toEther(info.eth) : 0)
+          .replace('{MATIC_PRICE}', info.eth > 0 ? MetaMaskSDK.toEther(info.eth) : 0)
           .replace('{TOKEN_HIDE}', info.gratis > 0 ? '' : ' hide')
-          .replace('{TOKEN_PRICE}', info.gratis > 0 ? blockapi.toEther(info.gratis): 0)
+          .replace('{TOKEN_PRICE}', info.gratis > 0 ? MetaMaskSDK.toEther(info.gratis): 0)
           .replace('{SUPPLY}', info.max > 0 
             ? (info.supply > 0 || info.max < 26 ? `${info.max - info.supply}/${info.max} remaining`: '')
             : (info.supply > 0 ? `${info.supply} sold`: '')
           )
         )
+
+        console.log(item)
         //append the item to the items container
         items.appendChild(item)
         //register html events
@@ -238,13 +240,13 @@
     //get id
     const id = parseInt(e.for.getAttribute('data-id'))
     //get metadata
-    const response = await fetch(`/data/gifts/${id}.json`)
+    const response = await fetch(`${itemMetadataUri}${id}.json`)
     const json = await response.json()
     //get info
-    const info = await blockapi.read(store, 'tokenInfo', id)
+    const info = await store.read().tokenInfo(id)
     //render modal template with actual values
     const modal = toElement(template.modal
-      .replace('{IMAGE}', `/images/rewards/${id}-preview.jpg`)
+      .replace('{IMAGE}', json.image)
       .replace('{ID}', id)
       .replace('{ID}', id)
       .replace('{NAME}', json.name)
@@ -256,10 +258,10 @@
       )
       .replace('{MATIC_HIDE}', info.eth > 0 ? '' : ' hide')
       .replace('{MATIC_PRICE}', info.eth > 0 ? info.eth : 0)
-      .replace('{MATIC_PRICE}', info.eth > 0 ? blockapi.toEther(info.eth) : 0)
+      .replace('{MATIC_PRICE}', info.eth > 0 ? MetaMaskSDK.toEther(info.eth) : 0)
       .replace('{TOKEN_HIDE}', info.gratis > 0 ? '' : ' hide')
       .replace('{TOKEN_PRICE}', info.gratis > 0 ? info.gratis : 0)
-      .replace('{TOKEN_PRICE}', info.gratis > 0 ? blockapi.toEther(info.gratis): 0)
+      .replace('{TOKEN_PRICE}', info.gratis > 0 ? MetaMaskSDK.toEther(info.gratis): 0)
       .replace('{SUPPLY}', info.max > 0 
         ? (info.supply > 0 || info.max < 26 ? `${info.max - info.supply}/${info.max} remaining`: '')
         : (info.supply > 0 ? `${info.supply} sold`: '')
