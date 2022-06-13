@@ -5,7 +5,6 @@
   //------------------------------------------------------------------//
   // Variables
   let populated = false
-  const itemMetadataUri = 'https://gateway.pinata.cloud/ipfs/QmTkuQYw7noSPHRfPAh7VXE6kgX2qdi6PPJMUTzAXMfYbe/'
   const state = { connected: false }
   const network = MetaMaskSDK.network('polygon')
   const store = network.contract('store')
@@ -15,6 +14,10 @@
     item: document.getElementById('tpl-item').innerHTML,
     modal: document.getElementById('tpl-modal').innerHTML
   }
+
+  // We must change this later on and we need a base URI property on the smart contract
+  let itemMetadataUri = await store.read().uri('0');
+  itemMetadataUri = itemMetadataUri.split('{id}.json')[0];
 
   //------------------------------------------------------------------//
   // Functions
@@ -60,6 +63,8 @@
         const json = await response.json()
         //get info
         const info = await store.read().tokenInfo(i + 1)
+        //get erc20 price
+        const tokenPrice = await store.read().tokenPrice(token.address, i + 1);
         //render item template with actual values
         const item = toElement(template.item
           .replace('{IMAGE}', json.preview)
@@ -67,15 +72,13 @@
           .replace('{NAME}', json.name)
           .replace('{MATIC_HIDE}', info.eth > 0 ? '' : ' hide')
           .replace('{MATIC_PRICE}', info.eth > 0 ? MetaMaskSDK.toEther(info.eth) : 0)
-          .replace('{TOKEN_HIDE}', info.gratis > 0 ? '' : ' hide')
-          .replace('{TOKEN_PRICE}', info.gratis > 0 ? MetaMaskSDK.toEther(info.gratis): 0)
+          .replace('{TOKEN_HIDE}', tokenPrice > 0 ? '' : ' hide')
+          .replace('{TOKEN_PRICE}', tokenPrice > 0 ? MetaMaskSDK.toEther(tokenPrice): 0)
           .replace('{SUPPLY}', info.max > 0 
-            ? (info.supply > 0 || info.max < 26 ? `${info.max - info.supply}/${info.max} remaining`: '')
+            ? (info.supply < info.max ? `${info.max - info.supply}/${info.max} remaining`: '')
             : (info.supply > 0 ? `${info.supply} sold`: '')
           )
         )
-
-        console.log(item)
         //append the item to the items container
         items.appendChild(item)
         //register html events
@@ -244,6 +247,8 @@
     const json = await response.json()
     //get info
     const info = await store.read().tokenInfo(id)
+    //get erc20 price
+    const tokenPrice = await store.read().tokenPrice(token.address, id);
     //render modal template with actual values
     const modal = toElement(template.modal
       .replace('{IMAGE}', json.image)
@@ -259,9 +264,9 @@
       .replace('{MATIC_HIDE}', info.eth > 0 ? '' : ' hide')
       .replace('{MATIC_PRICE}', info.eth > 0 ? info.eth : 0)
       .replace('{MATIC_PRICE}', info.eth > 0 ? MetaMaskSDK.toEther(info.eth) : 0)
-      .replace('{TOKEN_HIDE}', info.gratis > 0 ? '' : ' hide')
-      .replace('{TOKEN_PRICE}', info.gratis > 0 ? info.gratis : 0)
-      .replace('{TOKEN_PRICE}', info.gratis > 0 ? MetaMaskSDK.toEther(info.gratis): 0)
+      .replace('{TOKEN_HIDE}', tokenPrice > 0 ? '' : ' hide')
+      .replace('{TOKEN_PRICE}', tokenPrice > 0 ? tokenPrice : 0)
+      .replace('{TOKEN_PRICE}', tokenPrice > 0 ? MetaMaskSDK.toEther(tokenPrice): 0)
       .replace('{SUPPLY}', info.max > 0 
         ? (info.supply > 0 || info.max < 26 ? `${info.max - info.supply}/${info.max} remaining`: '')
         : (info.supply > 0 ? `${info.supply} sold`: '')
