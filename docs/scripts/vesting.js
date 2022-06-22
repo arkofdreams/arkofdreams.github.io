@@ -6,7 +6,7 @@
   // Variables
 
   const state = { connected: false }
-  const network = MetaMaskSDK.network('polygon')
+  const network = MetaMaskSDK.network('ethereum')
   const vesting = network.contract('vesting')
   const token = network.contract('token')
 
@@ -53,19 +53,11 @@
 
   const populate = function() {
     //determine all the final formatted values
-    const progress = `${(state.totalVestedAmount / state.vesting.total) * 100}%`
     const vestedStartDate = new Date(state.vesting.startDate * 1000)
     const vestedEndDate = new Date(state.vesting.endDate * 1000)
-    const totalVested = MetaMaskSDK.toEther(state.totalVestedAmount) < 100 
-      ? MetaMaskSDK.toEther(state.totalVestedAmount)
-      : parseFloat(
-        MetaMaskSDK.toEther(state.totalVestedAmount)
-      ).toLocaleString('en')
-    const totalVesting = MetaMaskSDK.toEther(state.vesting.total) < 100
-      ? MetaMaskSDK.toEther(state.vesting.total)
-      : parseFloat(
-        MetaMaskSDK.toEther(state.vesting.total)
-      ).toLocaleString('en')
+    const totalVesting = parseFloat(
+      MetaMaskSDK.toEther(state.vesting.total)
+    ).toLocaleString('en')
     const totalReleaseable = MetaMaskSDK.toEther(state.totalReleasableAmount) < 100
       ? MetaMaskSDK.toEther(state.totalReleasableAmount)
       : parseFloat(
@@ -77,13 +69,16 @@
         MetaMaskSDK.toEther(state.vesting.released)
       ).toLocaleString('en')
 
+    let progress = `${(state.totalVestedAmount / state.vesting.total) * 100}%`
+    let totalVested = MetaMaskSDK.toEther(state.totalVestedAmount)
+
     //update HTML values
     document.getElementById('progress').style.width = progress
-    document.getElementById('progress-total-vested').innerHTML = totalVested
+    document.getElementById('progress-total-vested').innerHTML = parseFloat(totalVested).toLocaleString('en')
     document.getElementById('progress-total-vesting').innerHTML = totalVesting
     document.getElementById('total-vesting').innerHTML = totalVesting
     document.getElementById('claimable').innerHTML = state.paused ? 'Waiting on TGE': 'Now'
-    document.getElementById('total-releaseable').innerHTML = totalReleaseable
+    document.getElementById('total-releaseable').innerHTML = !state.paused ? totalReleaseable: 'Nothing right now.'
     document.getElementById('total-released').innerHTML = totalReleased
     document.getElementById('vesting-start-date').innerHTML = [
       months[vestedStartDate.getMonth()],
@@ -96,9 +91,19 @@
       vestedEndDate.getFullYear()
     ].join(' ')
 
-    if (state.totalReleasableAmount > 0) {
+    if (!state.paused && state.totalReleasableAmount > 0) {
       document.getElementById('claim').style.display = 'inline-block'
     }
+
+    const duration = state.vesting.endDate - state.vesting.startDate
+    const increment = MetaMaskSDK.toEther(state.vesting.total) / duration
+    setInterval(() => {
+      totalVested = parseFloat(totalVested) + parseFloat(increment)
+      progress = `${(totalVested / MetaMaskSDK.toEther(state.vesting.total)) * 100}%`
+
+      document.getElementById('progress').style.width = progress
+      document.getElementById('progress-total-vested').innerHTML = parseFloat(totalVested).toLocaleString('en')
+    }, 1000)
   }
 
   const disconnected = function(newstate, error) {
@@ -151,6 +156,8 @@
 
   //------------------------------------------------------------------//
   // Initialize
+
+  network.startSession(connected, disconnected, true)
 
   window.doon(document.body)
 })()

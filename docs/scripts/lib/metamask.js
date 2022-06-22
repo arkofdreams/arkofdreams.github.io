@@ -37,8 +37,8 @@
      * @returns BigNumber 
      */
     static toBigNumber(num) {
-      const BN = this.web3().utils.BN
-      return new BN(num)
+      const BN = this.web3().utils.BN;
+      return new BN(num);
     }
 
     /**
@@ -538,7 +538,8 @@
           continue;
         }
 
-        methods[method.name] = async function(account, value, ...args) {
+        const name = `${method.name}(${method.inputs.map(input => input.type).join(',')})`
+        methods[name] = methods[method.name] = async function(account, value, ...args) {
           const params = { to: self.address, from: account };
           if (/^[0-9]+$/ig.test(String(value))) {
             params.value = String(MetaMask.web3().utils.toHex(value))
@@ -567,7 +568,8 @@
           continue;
         }
 
-        methods[method.name] = async function(...args) {
+        const name = `${method.name}(${method.inputs.map(input => input.type).join(',')})`
+        methods[name] = methods[method.name] = async function(...args) {
           return await self.readResource.methods[method.name](...args).call();
         };
       }
@@ -647,7 +649,8 @@
         }
 
         //define the new method
-        methods[method.name] = function(account, value, ...args) {
+        const name = `${method.name}(${method.inputs.map(input => input.type).join(',')})`
+        methods[name] = methods[method.name] = function(account, value, ...args) {
           //default params
           const params = { to: self.address, from: account };
           //if there is a valid value

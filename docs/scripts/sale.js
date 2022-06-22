@@ -3,9 +3,10 @@
   MetaMaskSDK.setup(blocknet)
 
   const state = { connected: false }
-  const network = MetaMaskSDK.network('polygon')
-  const sale = network.contract('sale')
+  const network = MetaMaskSDK.network('ethereum')
   const vesting = network.contract('vesting')
+  const sale = network.contract('sale')
+  const usdc = network.contract('usdc')
 
   //chest variables
   const months = [
@@ -14,7 +15,7 @@
     'SEP', 'OCT', 'NOV', 'DEC'
   ]
   const amountOfAODToPurchase = document.getElementById('amount')
-  const amountOfTotalMaticItCosts = document.getElementById('conversion') 
+  const amountOfTotalEthItCosts = document.getElementById('conversion') 
 
   const connected = function(newstate) {
     ///update state
@@ -26,9 +27,9 @@
   }
 
   const populate = async function() {
-    state.unitPrice = await (sale.read().currentTokenPrice())
+    state.unitPrice = await (sale.read().currentERC20Price(usdc.address))
     state.tokenLimit = await (sale.read().currentTokenLimit())
-    state.tokenAllocated = await (sale.read().currentTokenAllocated())
+    state.tokenAllocated = await (vesting.read().totalAllocated())
     state.vestedDate = await (sale.read().currentVestedDate())
 
     const vestedDate = new Date(state.vestedDate * 1000)
@@ -39,7 +40,7 @@
     const maxAllocation = parseFloat(
       MetaMaskSDK.toEther(state.tokenLimit)
     ).toLocaleString('en')
-    const unitPrice = `${MetaMaskSDK.toEther(state.unitPrice)} MATIC`
+    const unitPrice = `${MetaMaskSDK.toEther(state.unitPrice)} USDC`
 
     document.getElementById('progress').style.width = percent
     document.getElementById('current-allocation').innerHTML = currentAllocation
@@ -51,7 +52,7 @@
       vestedDate.getFullYear()
     ].join(' ')
 
-    amountOfTotalMaticItCosts.innerHTML = (
+    amountOfTotalEthItCosts.innerHTML = (
       MetaMaskSDK.toEther(state.unitPrice
     ) * amountOfAODToPurchase.value).toLocaleString('en')
   }
@@ -82,7 +83,7 @@
     }
 
     setTimeout(() => {
-      amountOfTotalMaticItCosts.innerHTML = (
+      amountOfTotalEthItCosts.innerHTML = (
         MetaMaskSDK.toEther(state.unitPrice
       ) * amountOfAODToPurchase.value).toLocaleString('en')
     }, 100)
@@ -99,16 +100,53 @@
       return notify('error', 'Address is already vesting')
     }
 
+    //approved value in wei
+    const approved = MetaMaskSDK.toBigNumber(state.unitPrice).mul(
+      MetaMaskSDK.toBigNumber(amountOfAODToPurchase.value)
+    )
+
+    const allowance = await (usdc.read().allowance(state.account, sale.address))
+    //if no allowance
+    if (allowance < approved) {
+      //gas check
+      try {
+        await (
+          usdc.gas(state.account).approve(
+            sale.address,
+            approved
+          )
+        )
+      } catch(e) {
+        const pattern = /have (\d+) want (\d+)/
+        const matches = e.message.match(pattern)
+        if (matches?.length === 3) {
+          e.message = e.message.replace(pattern, `have ${
+            MetaMaskSDK.toEther(matches[1], 'int').toFixed(5)
+          } ETH want ${
+            MetaMaskSDK.toEther(matches[2], 'int').toFixed(5)
+          } ETH`)
+        }
+        return notify('error', e.message.replace('err: i', 'I'))
+      }
+
+      try { //to approve
+        await usdc.write(state.account, false, 6).approve(
+          sale.address,
+          approved
+        )
+      } catch(e) {
+        return notify('error', e.message)
+      }
+    }
+
     //gas check
     try {
       await (
-        sale.gas(
-          state.account,
-          MetaMaskSDK
-            .toBigNumber(state.unitPrice)
-            .mul(MetaMaskSDK.toBigNumber(amountOfAODToPurchase.value))
-            .toString()
-        ).buy(state.account, MetaMaskSDK.toWei(amountOfAODToPurchase.value))
+        sale.gas(state.account)['buy(address,address,uint256)'](
+          usdc.address,
+          state.account, 
+          MetaMaskSDK.toWei(amountOfAODToPurchase.value)
+        )
       )
     } catch(e) {
       const pattern = /have (\d+) want (\d+)/
@@ -127,17 +165,31 @@
       await (
         sale.write(
           state.account,
-          MetaMaskSDK
-            .toBigNumber(state.unitPrice)
-            .mul(MetaMaskSDK.toBigNumber(amountOfAODToPurchase.value))
-            .toString(),
+          false,
           2
-        ).buy(state.account, MetaMaskSDK.toWei(amountOfAODToPurchase.value))
+        )['buy(address,address,uint256)'](
+          usdc.address, 
+          state.account, 
+          MetaMaskSDK.toWei(amountOfAODToPurchase.value)
+        )
       )
     } catch(e) {
       return notify('error', e.message)
     }
+
+    state.tokenAllocated = await (sale.read().currentTokenAllocated())
+    const percent = `${(state.tokenAllocated / state.tokenLimit) * 100}%`
+    document.getElementById('progress').style.width = percent
+    notify(
+      'success', 
+      `${
+        parseFloat(amountOfAODToPurchase.value).toLocaleString('en')
+      } AOD was successfully purchased`,
+      1000000
+    )
   })
+
+  network.startSession(connected, disconnected, true)
 
   window.doon(document.body)
 })()
