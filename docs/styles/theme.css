@@ -14,6 +14,17 @@ html, body {
   display: none;
 }
 
+.d-flex {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.w-25 { width: 25%; }
+.w-50 { width: 50%; }
+.w-100 { width: 100%; }
+
 a, a:hover, a:active, a:visited {
   color: #0A0A0A;
   text-decoration: underline;
@@ -271,16 +282,23 @@ a, a:hover, a:active, a:visited {
   color: #008800;
 }
 
-.d-flex {
-  display: -ms-flexbox;
+.countdown {
   display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+  list-style: none;
+  justify-content: center;
+  padding-left: 0;
 }
 
-.w-25 { width: 25%; }
-.w-50 { width: 50%; }
-.w-100 { width: 100%; }
+.countdown li {
+  border: 1px solid #CCCCCC;
+  color: #FFFFFF;
+  padding: 20px;
+  width: 100px;
+}
+
+.countdown .countdown-timer {
+  font-size: 40px;
+}
 
 .head {
   background-color: #000000;

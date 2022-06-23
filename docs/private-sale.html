@@ -40,7 +40,7 @@
           <a href="/arkonians.html">Arkonians</a>
           <a href="/store.html">Store</a>
           <a href="/rewards.html">Rewards</a>
-          <a class="btn btn-outline btn-primary" href="https://arkofdreams.gitbook.io/whitepaper" target="_blank">
+          <a class="btn btn-outline btn-secondary" href="https://arkofdreams.gitbook.io/whitepaper" target="_blank">
             White Paper
           </a>
           <a class="btn btn-solid btn-primary" href="https://discord.gg/invite/aod" target="_blank">
@@ -54,11 +54,36 @@
       <section class="section section-1">
         <div class="container">
           <h1>Arkonian $AOD Token Private Sale</h1>
-          <div id="disconnected">
+          <ul
+            class="countdown"
+            data-do="countdown"
+            data-date="2022-08-01 00:00:00"
+            data-zone="user_timezone"
+            data-user_timezone="Asia/Manila"
+            data-account_timezone="Asia/Hong_Kong"
+          >
+            <li>
+              <div class="countdown-timer days">00</div>
+              <div class="countdown-label">Days</div>
+            </li>
+            <li>
+              <div class="countdown-timer hours">00</div>
+              <div class="countdown-label">Hours</div>
+            </li>
+            <li>
+              <div class="countdown-timer minutes">00</div>
+              <div class="countdown-label">Mins</div>
+            </li>
+            <li>
+              <div class="countdown-timer seconds">00</div>
+              <div class="countdown-label">Secs</div>
+            </li>
+          </ul>
+          <div class="disconnected">
             <a class="btn btn-large btn-solid btn-primary" data-do="connect" data-on="click" href="javascript:void(0)">
               Connect to Ethereum Network
             </a>
-            <a class="note" href="https://metamask.app.link/dapp/www.arkofdreams.io/private-sale" target="_blank">
+            <a class="note" href="https://metamask.app.link/dapp/www.arkofdreams.io/vesting" target="_blank">
               Use Metamask Mobile
             </a>
           </div>
@@ -66,14 +91,145 @@
       </section>
       <section class="section section-2">
         <div class="container">
-          <div class="steps">
-            <div class="step">
-              <div class="label">Closed</div>
-              <div class="instructions">
-                <h2>Private Sale is Currently Closed</h2>
-                <div>
-                  If you are vesting you can check <a href="/vesting.html">here</a> 
-                  to find your status.
+          <div class="connected">
+            <div class="steps">
+              <div class="step">
+                <div class="label">Step 1</div>
+                <div class="instructions">
+                  <h2>Crypto Sign Agreement</h2>
+                  <a class="btn btn-solid btn-primary" href="https://www.kryptosign.io/sign/1YNlQc6Y" target="_blank">
+                    Click Here To Sign
+                  </a>
+                  <p>
+                    Make sure that you read and understand every word of the 
+                    contract. If you have any questions, just send an email to 
+                    <a href=mailto:hello@arkofdreams.io>hello@arkofdreams.io </a> 
+                    and we will get back to you as soon as possible.
+                  </p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="label">Step 2</div>
+                <div class="instructions">
+                  <h2>Purchase Arkonia Tokens</h2>
+                  
+                  <div class="progress">
+                    <div class="meter"><div id="progress"></div></div>
+                    <div class="labels">
+                      <div id="current-allocation" class="left"></div>
+                      <div id="max-allocation" class="right"></div>
+                    </div>
+                  </div>
+                  <form class="form" data-do="buy" data-on="submit">
+                    <div class="form-row">
+                      <label>Purchase With</label>
+                      <div class="form-input">
+                        <div class="tokens">
+                          <label class="token">
+                            <input 
+                              class="token-option" 
+                              data-do="select-token" 
+                              data-on="change" 
+                              name="token" 
+                              type="radio" 
+                              value="usdc" 
+                              checked 
+                            />
+                            <div class="token-label">
+                              <img src="https://etherscan.io/token/images/centre-usdc_28.png" />
+                              <span>USDC</span>
+                            </div>
+                          </label>
+                          <label class="token">
+                            <input 
+                              class="token-option" 
+                              data-do="select-token" 
+                              data-on="change" 
+                              name="token" 
+                              type="radio" 
+                              value="" 
+                            />
+                            <div class="token-label">
+                              <img src="https://etherscan.io/images/ethereum-icon.png" />
+                              <span>ETH</span>
+                            </div>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="stats">
+                        <div class="stat">
+                          <h3>Price per AOD</h3>
+                          <span id="unit-price"></span>
+                        </div>
+                        <div class="stat">
+                          <h3>Fully Vested Date</h3>
+                          <span id="vested-date"></span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="box-secondary">
+                      <div class="form-row">
+                        <label>Enter $AOD Amount</label>
+                        <div class="form-input form-inline">
+                          <input 
+                            id="amount" 
+                            type="number" 
+                            class="form-control" 
+                            max="600000" 
+                            step="1" 
+                            value="250"
+                            data-do="calculate"
+                            data-on="keyup"
+                          />
+                          <button class="btn btn-solid btn-secondary">
+                            Buy
+                          </button>
+                          <strong class="calculations"> = <span id="conversion">2,500 USDC</span></strong>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                  <div class="alert alert-outline alert-white">
+                    Make sure you add enough USDC + ETH Gas for your upcoming 
+                    transaction.
+                  </div>
+                  
+                  <div class="alert alert-outline alert-white">
+                    You can only purchase once. Make sure you input the 
+                    right amount before pressing on "BUY".
+                  </div>
+                  
+                  <div class="alert alert-outline alert-white">
+                    You can audit the contracts here:
+                    <ul>
+                      <li>
+                        <a href="https://rinkeby.etherscan.io/address/0x84C8a3F7ca005975C8303E5a9b6817Aaa29e732E" target="_blank">AOD Token Contract</a>
+                      </li>
+                      <li>
+                        <a href="https://rinkeby.etherscan.io/address/0x8F54a342Fb4327C8D85Ea86A9322713eA80E040c" target="_blank">Token Sale Contract</a>
+                      </li>
+                      <li>
+                        <a href="https://rinkeby.etherscan.io/address/0x251d30D2B81FDdd3e6BEA1F79726F391185bd2d0" target="_blank">Vesting Contract</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="label">Step 3</div>
+                <div class="instructions">
+                  <h2>Purchase Confirmation</h2>
+                  <a class="btn btn-solid btn-primary" href="https://forms.gle/YBzJVMo2hHomMpp78" target="_blank">
+                    Click Here To Confirm
+                  </a>
+                  <p>
+                    Please expect a friendly email with the signed legal 
+                    agreement in approximately 1 week. We will then send you 
+                    your next steps on boarding the Ark of Dreams.
+                  </p>
                 </div>
               </div>
             </div>

@@ -1590,7 +1590,7 @@ window.blocknet = {
         "type": "function"
       }
     ],
-    "usdc": [
+    "erc20": [
       {
         "inputs": [],
         "stateMutability": "nonpayable",
