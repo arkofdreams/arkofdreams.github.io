@@ -336,5 +336,8 @@
     trigger.setAttribute('data-on', 'click')
     window.doon(trigger)
     trigger.click()
+    if (amount && recipient && proof && await network.active()) {
+      network.connectCB(_ => {}, _ => {})
+    }
   }
 })()
