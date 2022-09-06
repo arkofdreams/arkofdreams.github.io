@@ -1,0 +1,12 @@
+{
+  "name": "AoD Card",
+  "external_url": "https://www.arkofdreams.io/ubxstore.html?item=10",
+  "image": "https://www.arkofdreams.io/images/ubxstore/10.jpg",
+  "animation_url": "https://www.arkofdreams.io/images/ubxstore/10.glb",
+  "attributes": [
+    {
+      "trait_type": "Color",
+      "value": "Silver"
+    }
+  ]
+}
